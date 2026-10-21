@@ -1,0 +1,51 @@
+{
+  "Connect your devices": ["连接你的设备", "連接你的裝置"],
+  "Paste a connection link from your other device, or enter your server’s HTTPS address. A link lets you join without copying the owner key.": [
+    "粘贴另一台设备上的连接链接，或输入服务器的 HTTPS 地址。使用链接连接，无需复制访问密钥。",
+    "貼上另一台裝置上的連接連結，或輸入伺服器的 HTTPS 網址。使用連結連接，無需複製存取金鑰。"
+  ],
+  "Relay server address": ["Relay 服务器地址", "Relay 伺服器網址"],
+  "Enter your server’s HTTPS address, without a path, password or query.": [
+    "请输入服务器的 HTTPS 地址，不要包含路径、密码或查询参数。",
+    "請輸入伺服器的 HTTPS 網址，不要包含路徑、密碼或查詢參數。"
+  ],
+  "Cancel": ["取消", "取消"],
+  "Use sample on this device": ["在此设备上体验示例", "在此裝置上體驗範例"],
+  "Use sample": ["体验示例", "體驗範例"],
+  "Connect": ["连接", "連接"],
+  "Reconnect to Relay": ["重新连接 Relay", "重新連接 Relay"],
+  "Let’s reconnect.": ["重新连接吧。", "重新連接吧。"],
+  "Your assistant’s server is unreachable. Your conversations and work stay saved there.": [
+    "暂时无法连接助手的服务器。你的对话和工作仍保存在那里。",
+    "暫時無法連接助理的伺服器。你的對話和工作仍儲存在那裡。"
+  ],
+  "Try again": ["重试", "再試一次"],
+  "Change server": ["更换服务器", "更換伺服器"],
+  "Close and reopen Relay to restore the connection.": [
+    "请关闭并重新打开 Relay 以恢复连接。",
+    "請關閉並重新開啟 Relay 以恢復連接。"
+  ],
+  "Close and reopen Relay to change your server.": [
+    "请关闭并重新打开 Relay 以更换服务器。",
+    "請關閉並重新開啟 Relay 以更換伺服器。"
+  ],
+  "Open the Relay mobile app to choose your server.": [
+    "请在 Relay 移动应用中选择服务器。",
+    "請在 Relay 行動應用程式中選擇伺服器。"
+  ],
+  "The connection screen could not open. Please reopen Relay.": [
+    "无法打开连接页面。请重新打开 Relay。",
+    "無法開啟連接頁面。請重新開啟 Relay。"
+  ],
+  "One assistant, everywhere": ["一个助手，随处相伴", "一個助理，隨處相伴"],
+  "Connected to {url}": ["已连接到 {url}", "已連接到 {url}"],
+  "This sample is saved on this device.": ["此示例保存在当前设备上。", "此範例儲存在目前裝置上。"],
+  "Connect to your Relay server to share conversations, memories and files with your desktop. Your server keeps working while this app is closed.": [
+    "连接到 Relay 服务器，即可与电脑共享对话、记忆和文件。关闭此应用后，服务器仍会继续工作。",
+    "連接到 Relay 伺服器，即可與電腦共享對話、記憶和檔案。關閉此應用程式後，伺服器仍會繼續工作。"
+  ],
+  "This address uses a port the app cannot open. Check your server’s web address.": [
+    "此地址使用了应用无法打开的端口。请检查服务器的网页地址。",
+    "此網址使用了應用程式無法開啟的連接埠。請檢查伺服器的網頁網址。"
+  ]
+}

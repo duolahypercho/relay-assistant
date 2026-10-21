@@ -1,0 +1,88 @@
+.thread-original {
+  margin: 0 0 24px;
+  border-bottom: 1px solid var(--border);
+  padding: 0 4px 16px;
+  color: var(--ink);
+}
+.thread-original summary {
+  position: relative;
+  padding-right: 24px;
+  cursor: pointer;
+  list-style: none;
+}
+.thread-context-toggle {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: var(--muted);
+}
+.thread-original details[open] .thread-context-toggle {
+  transform: rotate(180deg);
+}
+.thread-original summary > span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+.thread-original summary > strong {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+.thread-original details[open] summary > strong {
+  display: none;
+}
+.thread-original .markdown {
+  margin-top: 12px;
+  font-size: 14px;
+  max-height: 260px;
+  overflow: auto;
+}
+.thread-original .text-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+}
+.thread-original small {
+  color: var(--muted);
+}
+.thread-replies {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  width: fit-content;
+  min-height: 36px;
+  margin: 5px 0 0;
+  padding: 4px 9px;
+  color: var(--blue);
+  border-radius: 12px;
+  font-size: 13px;
+}
+.thread-replies:hover {
+  background: var(--soft);
+}
+.thread-replies small {
+  color: var(--muted);
+  margin-left: 5px;
+}
+.reply-conversation .thread-empty {
+  text-align: center;
+  margin: 32px 12px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.thread-archived {
+  font-size: 14px;
+}
+.reply-conversation .side-chat-label {
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

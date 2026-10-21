@@ -1,0 +1,138 @@
+.computer-teaching {
+  margin: 10px 0 18px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+}
+.teaching-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+}
+.teaching-heading > button {
+  min-height: 36px;
+}
+.teaching-body {
+  padding: 6px 18px 20px;
+}
+.teaching-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.teaching-title strong {
+  font-size: 15px;
+}
+.teaching-title > span {
+  font-size: 12px;
+  color: var(--muted);
+}
+.teaching-recording::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #b53245;
+  display: inline-block;
+  margin-right: 7px;
+}
+.teaching-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 14px;
+}
+.teaching-controls p {
+  flex-basis: 100%;
+  margin: 0;
+}
+.teaching-frames {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 6px 2px 12px;
+}
+.teaching-frames > button {
+  flex: 0 0 160px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 4px;
+  border-radius: 9px;
+  text-align: left;
+  color: var(--muted);
+}
+.teaching-frames > button.is-selected {
+  outline: 2px solid var(--blue);
+  outline-offset: 0;
+}
+.teaching-frames img {
+  width: 100%;
+  aspect-ratio: 1.6;
+  object-fit: contain;
+  border-radius: 5px;
+}
+.teaching-frames span {
+  display: block;
+  font-size: 11px;
+  padding: 6px;
+  overflow-wrap: anywhere;
+}
+.teaching-inspect {
+  margin-block: 10px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.teaching-inspect summary {
+  cursor: pointer;
+  padding-block: 8px;
+}
+.teaching-inspect img {
+  width: 100%;
+  margin-top: 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.teaching-editor {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.teaching-name {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.teaching-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  border-top: 1px solid var(--border);
+  margin-top: 20px;
+  padding-top: 16px;
+}
+.teaching-saved form {
+  margin-block: 16px;
+}
+.teaching-saved .text-button {
+  margin-block: 12px;
+}
+.teaching-body .form-note {
+  line-height: 1.6;
+}
+@media (max-width: 650px) {
+  .teaching-body {
+    padding: 4px 14px 16px;
+  }
+  .teaching-name {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .teaching-body input,
+  .teaching-body textarea {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,74 @@
+.composer-apps,
+.message-apps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.composer-apps {
+  padding: 0;
+}
+.composer-apps button,
+.message-apps > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  max-width: 100%;
+  border-radius: 12px;
+  background: var(--tint);
+  color: var(--ink);
+  padding: 7px 10px;
+  font-size: 12px;
+}
+.composer-apps button {
+  min-height: 36px;
+}
+.composer-apps button > span {
+  overflow-wrap: anywhere;
+  min-width: 0;
+  text-align: left;
+}
+.composer-apps svg,
+.message-apps svg {
+  flex-shrink: 0;
+}
+.composer-apps small {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+}
+.composer-apps .app-selection-stale {
+  border: 1px dashed var(--muted);
+}
+.message-apps {
+  margin-top: 8px;
+}
+.message-apps > span {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.composer > .composer-context {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.composer:has(.composer-voice):has(.choose-app-button) {
+  grid-template-columns: 84px minmax(0, 1fr) 38px 40px;
+}
+.composer:has(.choose-app-button) .composer-tools {
+  gap: 4px;
+}
+.composer:has(.choose-app-button) .composer-plus {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  .composer:has(.composer-voice):has(.choose-app-button) {
+    grid-template-columns: 74px minmax(0, 1fr) 34px 35px;
+  }
+}

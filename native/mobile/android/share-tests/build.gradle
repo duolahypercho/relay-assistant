@@ -1,0 +1,46 @@
+plugins { id 'java' }
+repositories { google(); mavenCentral() }
+configurations { androidTestAars }
+dependencies {
+    compileOnly 'org.robolectric:android-all:15-robolectric-13954326'
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation('org.robolectric:robolectric:4.17') {
+        exclude group: 'androidx.test', module: 'monitor'
+        exclude group: 'androidx.test.espresso', module: 'espresso-idling-resource'
+    }
+    androidTestAars 'androidx.test:monitor:1.8.0@aar'
+    androidTestAars 'androidx.test.espresso:espresso-idling-resource:3.7.0@aar'
+}
+sourceSets.main.java {
+    srcDir '../app/src/main/java'
+    include 'org/relay/assistant/ServerAddress.java', 'org/relay/assistant/ShareInbox.java', 'org/relay/assistant/SharePayload.java', 'org/relay/assistant/ShareText.java', 'org/relay/assistant/ShareWork.java'
+}
+// JVM-only framework tests: unwrap the Android test runtime's classes without the Android SDK.
+def aarJars = tasks.register('extractAndroidTestClasses') {
+    inputs.files(configurations.androidTestAars)
+    outputs.dir(layout.buildDirectory.dir('android-test-jars'))
+    doLast {
+        delete layout.buildDirectory.dir('android-test-jars')
+        configurations.androidTestAars.each { aar ->
+            copy {
+                filePermissions { unix('rw-r--r--') }
+                from(zipTree(aar)) { include 'classes.jar'; rename { aar.name + '.jar' } }
+                into layout.buildDirectory.dir('android-test-jars')
+            }
+        }
+    }
+}
+sourceSets.test.compileClasspath += sourceSets.main.compileClasspath
+sourceSets.test.runtimeClasspath += sourceSets.main.compileClasspath + files(aarJars.map { it.outputs.files.asFileTree.matching { include '**/*.jar' } })
+test {
+    dependsOn aarJars
+    maxHeapSize = '1g'
+    // Robolectric's documented Java 17+ access to framework file descriptors and JDK internals.
+    ['java.base/java.lang', 'java.base/java.util', 'java.base/java.io', 'java.base/java.net',
+     'java.base/java.security', 'java.base/java.text', 'java.base/jdk.internal.access',
+     'java.desktop/java.awt.font', 'jdk.compiler/com.sun.tools.javac.api'].each {
+        jvmArgs "--add-opens=${it}=ALL-UNNAMED"
+    }
+    systemProperty 'robolectric.dependency.repo.url', 'https://repo.maven.apache.org/maven2'
+    testLogging { events 'passed', 'failed', 'skipped'; exceptionFormat 'full' }
+}

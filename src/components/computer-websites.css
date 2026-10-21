@@ -1,0 +1,104 @@
+.computer-websites {
+  margin: 18px 0;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+  font-size: 13px;
+}
+.computer-websites > summary {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
+}
+.computer-websites > summary span {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 11px;
+}
+.computer-websites > p {
+  max-width: 620px;
+  line-height: 1.55;
+}
+.computer-websites > form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 16px 0;
+}
+.computer-websites input {
+  flex: 1;
+  min-width: 0;
+}
+.website-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+.website-row > div:first-child {
+  min-width: 0;
+}
+.website-row strong {
+  display: block;
+  overflow-wrap: anywhere;
+}
+.website-row span {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.website-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.website-actions button {
+  font-size: 12px;
+  min-height: 36px;
+}
+.website-permission {
+  max-width: 460px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  background: var(--surface);
+  font-size: 13px;
+}
+.website-heading {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  overflow-wrap: anywhere;
+}
+.website-heading strong {
+  min-width: 0;
+}
+.website-permission p {
+  line-height: 1.55;
+}
+.website-permission details {
+  font-size: 12px;
+  margin: 12px 0;
+}
+.website-permission summary {
+  cursor: pointer;
+}
+.website-permission .website-actions {
+  margin-top: 14px;
+}
+@media (max-width: 600px) {
+  .website-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .computer-websites > form {
+    flex-wrap: wrap;
+  }
+  .computer-websites input {
+    flex-basis: 100%;
+  }
+}

@@ -1,0 +1,31 @@
+# The server build has its own allowlist. Keep the root .dockerignore restricted
+# to private-computer build inputs; never send owner data or credentials.
+**
+!package.json
+!package-lock.json
+!index.html
+!native-connection.html
+!tsconfig.json
+!vite.config.ts
+!src
+!src/**
+!shared
+!shared/**
+!server
+!server/**
+!public
+!public/**
+!docker
+!docker/**
+!LICENSE
+!THIRD_PARTY_NOTICES.md
+!third-party-licenses
+!third-party-licenses/**
+!native
+!native/audio
+!native/audio/transcribe.c
+!scripts
+!scripts/build-listening-linux.mjs
+
+# Private portable computer backups
+**/*.relaybackup

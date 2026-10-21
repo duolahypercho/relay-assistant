@@ -1,0 +1,39 @@
+.file-drop-target {
+  position: relative;
+}
+.file-drop-overlay {
+  position: absolute;
+  inset: 6px;
+  z-index: 12;
+  border: 2px dashed var(--blue);
+  border-radius: 20px;
+  background: var(--surface);
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  text-align: center;
+  pointer-events: none;
+}
+.file-drop-overlay strong {
+  font-size: 20px;
+}
+.file-drop-overlay span {
+  font-size: 14px;
+  color: var(--muted);
+}
+.computer-upload {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0;
+}
+.computer-upload p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+}

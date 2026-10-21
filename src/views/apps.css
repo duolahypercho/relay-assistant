@@ -1,0 +1,553 @@
+.apps-page {
+  max-width: 780px;
+  margin: 0 auto;
+}
+.apps-intro {
+  color: var(--muted);
+  margin: 0 0 26px;
+  max-width: 54ch;
+}
+.apps-list {
+  display: grid;
+  gap: 12px;
+}
+.workspace-apps-page .workspace-page-content:has(.app-documents) > h1 {
+  display: none;
+}
+.app-documents h1 {
+  margin: 20px 0 12px;
+  font-size: 24px;
+  overflow-wrap: anywhere;
+}
+.app-document-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  background: var(--surface);
+}
+.app-document-search input {
+  min-width: 0;
+  width: 100%;
+  padding: 13px 0;
+  border: 0;
+  font: inherit;
+  color: var(--ink);
+  background: transparent;
+}
+.app-document-list {
+  display: grid;
+  margin-top: 18px;
+}
+.app-document-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 4px;
+  text-align: left;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+}
+.app-document-row:hover {
+  background: var(--soft);
+}
+.app-document-row > svg {
+  flex-shrink: 0;
+}
+.app-document-row > span {
+  flex: 1;
+  min-width: 0;
+}
+.app-document-row strong,
+.app-document-row small {
+  display: block;
+  overflow-wrap: anywhere;
+}
+.app-document-row strong {
+  font-size: 16px;
+}
+.app-document-row small {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.app-documents form {
+  max-width: 480px;
+}
+.app-documents .app-fields {
+  margin-bottom: 16px;
+}
+.app-document-part {
+  display: grid;
+  gap: 8px;
+  margin: 18px 0;
+}
+.app-document-part select {
+  padding: 12px;
+  max-width: 100%;
+  font: inherit;
+}
+.app-connection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+}
+.app-mark {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: var(--soft);
+  color: var(--ink);
+}
+.app-summary {
+  flex: 1;
+  min-width: 0;
+}
+.app-summary h2,
+.app-summary h3,
+.app-summary > strong {
+  display: block;
+  font-size: 17px;
+  line-height: 1.35;
+  margin: 0 0 5px;
+  overflow-wrap: anywhere;
+}
+.app-summary p,
+.app-description {
+  display: block;
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+.app-state {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 7px;
+  font-size: 12px;
+  color: var(--ink);
+}
+.app-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.add-app {
+  margin-top: 22px;
+}
+.apps-footnote {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 18px 0;
+  max-width: 66ch;
+}
+.app-editor {
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+}
+.app-editor-heading,
+.app-tools-heading {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+.app-editor-heading h2 {
+  margin: 0;
+  font-size: 21px;
+}
+.app-fields {
+  border: 0;
+  padding: 0;
+  margin: 20px 0 0;
+  min-width: 0;
+  display: grid;
+  gap: 14px;
+}
+.app-fields > label:not(.app-choice) {
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.app-fields input:not([type='checkbox']),
+.app-fields select {
+  border: 1px solid var(--border);
+  background: var(--soft);
+  color: var(--ink);
+  padding: 11px 13px;
+  border-radius: 11px;
+  min-width: 0;
+  width: 100%;
+  font: inherit;
+  box-sizing: border-box;
+}
+.app-fields .field-help {
+  font-size: 13px;
+  color: var(--muted);
+  margin: -5px 0 3px;
+  font-weight: 400;
+}
+.app-fields button.primary-button {
+  justify-self: start;
+}
+.app-tools-heading {
+  margin-top: 8px;
+}
+.app-tools-heading h3 {
+  margin: 0;
+  font-size: 17px;
+}
+.app-choice {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.app-choice input {
+  flex-shrink: 0;
+  margin-top: 4px;
+  accent-color: var(--blue);
+}
+.app-tool-list {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.app-tool {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 148px;
+  gap: 16px;
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.app-tool:last-child {
+  border: 0;
+}
+.app-tool strong {
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.app-tool p {
+  margin: 5px 0;
+  font-size: 13px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+.app-tool summary,
+.app-scope summary {
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 13px;
+}
+.app-tool pre,
+.connector-arguments,
+.connector-output {
+  max-height: 240px;
+  overflow: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 12px;
+  padding: 12px;
+  background: var(--soft);
+  color: var(--ink);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.app-tool code {
+  display: block;
+  margin-top: 8px;
+  overflow-wrap: anywhere;
+}
+.app-scope .app-choice {
+  margin-top: 12px;
+}
+.app-disconnect {
+  margin-top: 24px;
+  border-top: 1px solid var(--border);
+  padding-top: 18px;
+}
+.app-disconnect p {
+  font-size: 14px;
+}
+.app-disconnect button + button {
+  margin-left: 10px;
+}
+.connector-review-result {
+  margin: 12px 0;
+}
+.connector-review-result summary {
+  cursor: pointer;
+  font-size: 13px;
+}
+@media (max-width: 600px) {
+  .app-connection {
+    padding: 15px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .app-actions {
+    margin-left: auto;
+  }
+  .app-editor {
+    padding: 16px;
+  }
+  .app-tool {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+  .app-tool select {
+    min-height: 44px;
+  }
+  .app-connection > .secondary-button {
+    margin-left: auto;
+  }
+}
+
+.connector-values {
+  margin: 16px 0;
+  display: grid;
+  gap: 12px;
+}
+.connector-values > div > span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: capitalize;
+  margin-bottom: 4px;
+}
+.connector-values p {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 14px;
+}
+.connector-values pre {
+  max-height: 240px;
+  overflow: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 12px;
+}
+.connector-action-details {
+  margin-top: 16px;
+}
+.connector-action-details summary {
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--muted);
+}
+.workspace-page:has(.apps-page) .workspace-page-toolbar,
+.workspace-page-content:has(> .apps-page) {
+  width: min(100%, 836px);
+}
+
+.app-advanced {
+  font-size: 14px;
+}
+.app-advanced summary {
+  cursor: pointer;
+  color: var(--muted);
+  margin: 4px 0 14px;
+}
+.app-advanced label {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0;
+}
+.app-advanced details {
+  margin-top: 18px;
+}
+.app-sign-in-status {
+  margin: 20px 0 0;
+  padding: 18px;
+  border-radius: 14px;
+  background: var(--soft);
+}
+.app-sign-in-status p {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 7px 0;
+}
+.app-sign-in-status a {
+  color: var(--ink);
+  font-size: 14px;
+  margin-right: 14px;
+}
+.app-sign-in-status button {
+  min-height: 44px;
+}
+.local-tool-variable {
+  display: flex;
+  align-items: end;
+  gap: 12px;
+}
+.local-tool-variable label {
+  flex: 1;
+  min-width: 0;
+}
+.local-tool-variable > button {
+  flex-shrink: 0;
+  margin-bottom: 12px;
+  min-height: 44px;
+}
+.local-tool-notice {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--soft);
+}
+.local-tool-computer {
+  justify-self: start;
+}
+.app-directory {
+  margin-top: 28px;
+}
+.app-directory > h2 {
+  margin: 0 0 6px;
+  font-size: 21px;
+}
+.app-directory > p {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0 0 16px;
+}
+.app-directory-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0 12px;
+  background: var(--surface);
+  margin-bottom: 14px;
+}
+.app-directory-search input {
+  border: 0;
+  outline-offset: -2px;
+  min-width: 0;
+  width: 100%;
+  min-height: 46px;
+  font: inherit;
+  font-size: 14px;
+  background: transparent;
+  color: var(--ink);
+}
+.app-directory-search svg {
+  flex-shrink: 0;
+}
+.app-letter {
+  font-size: 21px;
+  font-weight: 600;
+}
+.app-directory-detail {
+  min-width: 0;
+  font-size: 14px;
+}
+.app-directory-detail p {
+  margin: 0 0 12px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+.app-directory-detail summary {
+  cursor: pointer;
+  color: var(--muted);
+}
+.app-directory-detail details p {
+  margin-top: 12px;
+}
+.app-directory-detail a {
+  color: var(--ink);
+}
+.app-directory-detail details button {
+  display: block;
+  margin-top: 8px;
+}
+.app-directory-option {
+  width: 100%;
+  text-align: left;
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+  flex-wrap: nowrap;
+}
+.app-directory-option:hover:not(:disabled) {
+  background: var(--soft);
+}
+.app-directory-action {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  font-size: 14px;
+}
+@media (max-width: 600px) {
+  .app-directory-action > span {
+    display: none;
+  }
+}
+.prompt-review-fields {
+  border: 0;
+  padding: 0;
+  margin: 16px 0;
+  min-width: 0;
+}
+.prompt-review-fields textarea {
+  min-height: 64px;
+  resize: vertical;
+}
+.prompt-review-field {
+  margin-bottom: 16px;
+}
+.prompt-review-field .field {
+  margin-bottom: 4px;
+}
+.prompt-options-actions,
+.prompt-options [role='group'] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.prompt-options-actions button,
+.prompt-options button {
+  min-height: 44px;
+}
+.prompt-options button {
+  max-width: 100%;
+}
+.prompt-options button span {
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.prompt-review-field .field-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 12px;
+}
+.prompt-review-field .field-heading > label {
+  overflow-wrap: anywhere;
+  min-width: 0;
+}

@@ -1,0 +1,137 @@
+.more-page {
+  max-width: 850px;
+  margin: 0 auto;
+}
+.more-intro {
+  color: var(--muted);
+  margin: -10px 0 30px;
+  font-size: 0.9375rem;
+}
+.more-sections {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+}
+.more-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 3px 10px 3px 14px;
+  margin-bottom: 28px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  color: var(--muted);
+  background: var(--sidebar);
+}
+.more-search > svg {
+  flex-shrink: 0;
+}
+.more-search input {
+  flex: 1;
+  min-width: 0;
+  min-height: 44px;
+  width: 100%;
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+}
+.more-search input::-webkit-search-cancel-button {
+  display: none;
+}
+.more-result-count {
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.more-sections h2 {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  font-weight: 500;
+  margin: 0 0 12px 12px;
+}
+.more-list {
+  display: flex;
+  flex-direction: column;
+}
+.more-list button {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+  width: 100%;
+  padding: 16px 12px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--ink);
+  border-radius: 10px;
+  min-height: 76px;
+}
+.more-list button:hover {
+  background: var(--sidebar);
+}
+.more-list button > svg {
+  flex-shrink: 0;
+  color: var(--muted);
+}
+.more-list button > span {
+  flex: 1;
+  min-width: 0;
+}
+.more-list strong {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 550;
+}
+.more-list small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  margin-top: 3px;
+}
+@media (max-width: 600px) {
+  .more-sections {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .more-intro {
+    margin-bottom: 24px;
+  }
+}
+
+.keyboard-help {
+  margin: 20px 0;
+}
+.keyboard-help summary {
+  cursor: pointer;
+  font-weight: 600;
+  padding: 10px 0;
+}
+.keyboard-help p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.keyboard-help dl {
+  margin: 16px 0;
+}
+.keyboard-help dl > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+}
+.keyboard-help dt {
+  font-size: 14px;
+}
+.keyboard-help dd {
+  margin: 0;
+  text-align: right;
+  font-size: 12px;
+}

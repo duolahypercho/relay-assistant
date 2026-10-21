@@ -1,0 +1,94 @@
+.media-preview {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--soft);
+  color: var(--ink);
+}
+.media-preview video {
+  display: block;
+  width: 100%;
+  max-height: 60vh;
+  aspect-ratio: 16/9;
+  object-fit: contain;
+  background: #151b18;
+}
+.media-preview audio {
+  display: none;
+}
+.media-controls {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px;
+  min-width: 0;
+}
+.media-controls button {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+.media-controls .media-toggle {
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.media-controls input {
+  min-width: 20px;
+  flex: 1;
+  width: 100%;
+  padding: 0;
+  accent-color: var(--blue);
+}
+.media-time {
+  font-size: 11px;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.media-failure {
+  padding: 12px;
+  font-size: 13px;
+}
+.media-controls button:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 1px;
+}
+.attachment-media {
+  display: grid;
+  gap: 8px;
+  width: min(380px, 100%);
+  margin-top: 8px;
+}
+.attachment-media .attachment-item {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--soft);
+}
+.photo-attachments .attachment-media .attachment-open {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 10px;
+  min-height: 38px;
+}
+.attachment-media .attachment-open svg {
+  flex-shrink: 0;
+}
+.attachment-media .media-preview {
+  border-radius: 0;
+}
+@media (pointer: coarse) {
+  .media-controls button {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
+}

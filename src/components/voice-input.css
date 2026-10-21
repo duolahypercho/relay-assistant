@@ -1,0 +1,88 @@
+.voice-input {
+  margin: 0 0 10px;
+  padding: 12px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+}
+.voice-input > p {
+  margin: 6px 0 0;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+.voice-recording-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  font-size: 0.8125rem;
+}
+.voice-recording-status > span {
+  flex: 1;
+}
+.voice-recording-status time {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.75rem;
+}
+.voice-recording-status.is-recording > svg {
+  color: #b63c38;
+}
+.voice-done {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border-radius: 20px;
+  padding: 8px 12px;
+  background: var(--ink);
+  color: var(--surface);
+  font-size: 0.75rem;
+  min-height: 36px;
+}
+.voice-input audio {
+  width: 100%;
+  display: block;
+  margin: 12px 0 6px;
+  height: 36px;
+}
+.voice-input-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+.voice-input .voice-privacy {
+  color: var(--muted);
+  font-size: 0.6875rem;
+}
+.composer:has(.composer-voice) {
+  grid-template-columns: 40px minmax(0, 1fr) 38px 40px;
+  gap: 0 6px;
+}
+.composer-voice {
+  grid-column: 3;
+  grid-row: 2;
+  color: var(--muted);
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+.composer:has(.composer-voice) .send-button {
+  grid-column: 4;
+}
+.composer-voice:hover {
+  background: var(--surface);
+  color: var(--ink);
+}
+@media (max-width: 600px) {
+  .composer:has(.composer-voice) {
+    grid-template-columns: 35px minmax(0, 1fr) 34px 35px;
+    gap: 0 4px;
+  }
+  .composer-voice {
+    width: 34px;
+    height: 34px;
+  }
+}

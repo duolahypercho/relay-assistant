@@ -1,0 +1,55 @@
+.reminder-chat-card {
+  width: 100%;
+  margin: 13px 0;
+  padding: 17px 20px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+.reminder-chat-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+.reminder-chat-heading strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8125rem;
+}
+.reminder-chat-heading strong svg {
+  color: var(--blue);
+}
+.reminder-chat-heading > span,
+.reminder-chat-time {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+.reminder-chat-text {
+  margin: 13px 0 5px;
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+.reminder-chat-time {
+  margin: 0;
+  line-height: 1.5;
+}
+.reminder-chat-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-top: 12px;
+}
+.reminder-chat-actions button {
+  min-height: 44px;
+  min-width: 44px;
+}
+@media (max-width: 480px) {
+  .reminder-chat-card {
+    padding: 14px;
+  }
+}

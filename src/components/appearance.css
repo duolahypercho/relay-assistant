@@ -1,0 +1,309 @@
+.shape-character,
+.picture-character {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 85%;
+  pointer-events: none;
+}
+.shape-character svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.character-body {
+  fill: color-mix(in srgb, var(--character-color) 62%, #fff8e9);
+  stroke: color-mix(in srgb, var(--character-color) 75%, #526558);
+  stroke-width: 1.3;
+}
+.picture-character {
+  padding: 4%;
+  box-sizing: border-box;
+}
+.picture-character img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 36%;
+  box-shadow: 0 0 0 1px #52655830;
+}
+.look-moving .character-eyes {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: look-blink 6s ease-in-out infinite;
+}
+.look-moving[data-pose='walk'] {
+  animation: look-walk 0.5s ease-in-out infinite;
+}
+.look-moving[data-pose='wave'] {
+  animation: look-greet 0.6s ease-in-out infinite;
+}
+.look-moving[data-pose='think'] {
+  animation: look-think 2.4s ease-in-out infinite;
+}
+@keyframes look-blink {
+  0%,
+  86%,
+  92%,
+  100% {
+    transform: scaleY(1);
+  }
+  89% {
+    transform: scaleY(0.1);
+  }
+}
+@keyframes look-walk {
+  0%,
+  100% {
+    transform: rotate(-6deg) translateY(-1px);
+  }
+  50% {
+    transform: rotate(6deg) translateY(1px);
+  }
+}
+@keyframes look-greet {
+  0%,
+  100% {
+    transform: rotate(-9deg);
+  }
+  50% {
+    transform: rotate(9deg) translateY(-3px);
+  }
+}
+@keyframes look-think {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(-8deg);
+  }
+}
+[data-companion-quiet='true'] .assistant-avatar .look-moving,
+[data-companion-quiet='true'] .assistant-avatar .character-eyes {
+  animation: none !important;
+}
+.appearance-editor {
+  margin: 4px 0 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+.appearance-preview-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+.appearance-preview {
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+  border-radius: 28px;
+  background: var(--soft);
+  padding: 8px;
+}
+.appearance-preview-row h3 {
+  font-size: 16px;
+  margin: 0 0 5px;
+}
+.appearance-preview-row p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0;
+}
+.appearance-choices {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 12px 0 18px;
+}
+.appearance-choices button {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  padding: 10px 4px;
+  font-size: 13px;
+  background: var(--surface);
+}
+.appearance-choices button[aria-pressed='true'] {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+  background: var(--soft);
+}
+.appearance-choices button > span {
+  width: 44px;
+  height: 44px;
+}
+.appearance-tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.avatar-generator {
+  margin: 18px 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.avatar-generator h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+.avatar-generator .model-fields {
+  min-width: 0;
+}
+.avatar-generator .form-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+.avatar-image-service summary {
+  cursor: pointer;
+  min-height: 44px;
+  padding: 12px 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+.avatar-generator .form-note {
+  overflow-wrap: anywhere;
+}
+.avatar-generator .form-error > button {
+  display: block;
+}
+.avatar-styles {
+  display: flex;
+  gap: 8px;
+  margin: 20px 0 16px;
+  flex-wrap: wrap;
+}
+.avatar-styles button {
+  padding: 9px 15px;
+  min-height: 44px;
+  border-radius: 20px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--ink);
+}
+.avatar-styles button[aria-pressed='true'] {
+  background: var(--soft);
+  border-color: var(--accent);
+}
+.generated-avatar-preview {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-top: 20px;
+}
+.generated-avatar-preview img {
+  width: 128px;
+  height: 128px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 24px;
+  background: var(--soft);
+}
+.generated-avatar-preview > div {
+  min-width: 0;
+}
+.generated-avatar-preview p {
+  margin: 0 0 10px;
+}
+.generated-avatar-preview .text-button {
+  display: block;
+  margin-top: 6px;
+}
+@media (max-width: 480px) {
+  .generated-avatar-preview {
+    align-items: flex-start;
+    gap: 14px;
+    flex-direction: column;
+  }
+}
+.appearance-tools .field {
+  flex-direction: row;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.appearance-tools input[type='color'] {
+  width: 44px;
+  height: 40px;
+  padding: 4px;
+  border-radius: 10px;
+}
+.picture-upload {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+}
+.picture-upload:focus-within {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.picture-upload input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  width: 100%;
+  cursor: pointer;
+}
+.picture-crop {
+  margin: 14px 0 0;
+}
+.picture-crop summary {
+  padding: 8px 0;
+  cursor: pointer;
+  font-size: 14px;
+}
+.picture-crop input[type='range'] {
+  padding: 0;
+  min-height: 36px;
+  accent-color: var(--accent);
+}
+@media (prefers-reduced-motion: reduce) {
+  .look-moving,
+  .look-moving .character-eyes {
+    animation: none !important;
+  }
+}
+@media (max-width: 420px) {
+  .appearance-preview {
+    width: 76px;
+    height: 76px;
+  }
+  .appearance-preview-row {
+    gap: 14px;
+  }
+  .appearance-choices {
+    gap: 7px;
+  }
+  .appearance-tools {
+    gap: 10px;
+  }
+  .appearance-tools .field {
+    flex-direction: row;
+    font-size: 13px;
+  }
+}
+
+.appearance-tools .field > label {
+  margin: 0;
+}
+[data-companion-quiet='true'] .look-moving[data-pose='idle'] .character-eyes {
+  animation: none !important;
+}

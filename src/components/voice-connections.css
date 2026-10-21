@@ -1,0 +1,96 @@
+.voice-setting {
+  padding: 16px 0;
+  border-top: 1px solid var(--border);
+}
+.voice-setting-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.voice-setting-heading > div {
+  flex: 1;
+  min-width: 0;
+}
+.voice-setting-heading h3 {
+  margin: 0;
+  font-size: 14px;
+}
+.voice-setting-heading p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.voice-setting-heading > button {
+  flex-shrink: 0;
+  font-size: 12px;
+}
+.voice-setting .field {
+  margin-top: 12px;
+}
+.voice-connections audio {
+  width: 100%;
+  margin-top: 16px;
+}
+.voice-connections input[type='file'] {
+  max-width: 100%;
+  font-size: 12px;
+}
+
+.voice-connections .form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+.voice-connections .model-endpoint p {
+  margin-bottom: 12px;
+}
+.system-voice-choice {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.system-voice-choice p {
+  margin: 8px 0;
+}
+.system-voice-choice button {
+  min-height: 44px;
+}
+.local-listening-choice progress {
+  width: 100%;
+  accent-color: var(--accent);
+}
+.local-listening-choice details {
+  margin-top: 12px;
+  font-size: 12px;
+}
+.local-listening-choice summary {
+  cursor: pointer;
+  min-height: 32px;
+  display: list-item;
+  align-content: center;
+}
+.voice-quick {
+  padding-bottom: 18px;
+}
+.voice-quick .local-listening-choice > p:first-child {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.voice-quick .primary-button {
+  margin-top: 8px;
+}
+.voice-options {
+  border-top: 1px solid var(--border);
+}
+.voice-options > summary {
+  min-height: 44px;
+  padding-block: 12px;
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 13px;
+}

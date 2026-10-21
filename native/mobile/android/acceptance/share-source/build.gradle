@@ -1,0 +1,20 @@
+// Independent fictional source app, included only with -PrelayAndroidAcceptance.
+apply plugin: 'com.android.application'
+android {
+    namespace 'org.relay.sharesource'
+    compileSdk rootProject.ext.compileSdkVersion
+    defaultConfig {
+        applicationId 'org.relay.sharesource'
+        minSdk 24
+        targetSdk rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName '1.0-test'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
+    }
+}
+androidComponents {
+    beforeVariants(selector().withBuildType('release')) { variant -> variant.enable = false }
+}

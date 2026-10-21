@@ -1,0 +1,63 @@
+.native-reconnect {
+  margin: 0;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  font-family: system-ui, sans-serif;
+  color: #243048;
+  background: #fafbf9;
+}
+.native-reconnect-card {
+  max-width: 420px;
+  padding: 32px;
+}
+.native-reconnect-mark {
+  display: block;
+  font-size: 42px;
+  color: #276e5f;
+  font-weight: 750;
+}
+.native-reconnect h1 {
+  font-size: 28px;
+  letter-spacing: -0.6px;
+  margin-top: 24px;
+}
+.native-reconnect p {
+  font-size: 16px;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+.native-reconnect-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+.native-reconnect button {
+  border: 1px solid #ccd4dc;
+  border-radius: 24px;
+  padding: 13px 20px;
+  color: inherit;
+  background: white;
+  font: inherit;
+}
+.native-reconnect button:first-child {
+  background: #276e5f;
+  border-color: #276e5f;
+  color: white;
+}
+.native-reconnect #error {
+  color: #98233b;
+}
+@media (prefers-color-scheme: dark) {
+  .native-reconnect {
+    background: #171e2b;
+    color: #e7eaf2;
+  }
+  .native-reconnect button {
+    background: #242c3a;
+  }
+  .native-reconnect-mark {
+    color: #94cfb7;
+  }
+}

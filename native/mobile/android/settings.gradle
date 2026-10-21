@@ -1,0 +1,10 @@
+include ':app'
+include ':capacitor-cordova-android-plugins'
+project(':capacitor-cordova-android-plugins').projectDir = new File('./capacitor-cordova-android-plugins/')
+
+apply from: 'capacitor.settings.gradle'
+// Opt-in, standalone test source. Never part of Relay's release APK.
+if (providers.gradleProperty('relayAndroidAcceptance').isPresent()) {
+    include ':share-source'
+    project(':share-source').projectDir = new File('acceptance/share-source')
+}

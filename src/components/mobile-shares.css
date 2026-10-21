@@ -1,0 +1,103 @@
+.incoming-share {
+  position: fixed;
+  z-index: 80;
+  top: 82px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(440px, calc(100% - 24px));
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: var(--shadow);
+  max-height: calc(100dvh - 112px);
+  overflow: auto;
+}
+.incoming-share-title,
+.incoming-share-title strong,
+.incoming-share-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.incoming-share p,
+.shared-composer-items p,
+.shared-message-source {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.incoming-share p {
+  max-height: 140px;
+  overflow: auto;
+  font-size: 14px;
+}
+.incoming-share label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  margin: 12px 0;
+}
+.incoming-share select {
+  flex: 1;
+  min-width: 0;
+}
+.incoming-share small,
+.shared-composer-items small {
+  color: var(--muted);
+  font-size: 12px;
+}
+.shared-composer-items {
+  max-height: 160px;
+  overflow: auto;
+  margin: 0 12px 10px;
+}
+.shared-composer-items > div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--soft);
+  padding: 9px 12px;
+  border-radius: 12px;
+  margin: 4px 0;
+}
+.shared-composer-items > div > div {
+  min-width: 0;
+}
+.shared-composer-items p {
+  margin: 4px 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.shared-composer-items span {
+  display: block;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+.shared-message-source {
+  margin: 8px 0;
+  padding: 8px 12px;
+  border-left: 3px solid var(--border);
+  font-size: 14px;
+  color: var(--ink);
+  max-height: 240px;
+  overflow: auto;
+}
+
+.composer > .shared-composer-items {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  min-width: 0;
+}
+.composer:has(.shared-composer-items) > .attachment-list {
+  grid-row: 2;
+}
+.composer:has(.shared-composer-items) textarea,
+.composer:has(.shared-composer-items) .composer-tools,
+.composer:has(.shared-composer-items) .composer-voice,
+.composer:has(.shared-composer-items) .composer-bottom > .send-button {
+  grid-row: 3;
+}

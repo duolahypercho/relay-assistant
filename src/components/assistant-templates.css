@@ -1,0 +1,176 @@
+.template-editor {
+  max-width: 780px;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: var(--surface);
+  padding: 24px;
+}
+.template-editor h2 {
+  font-size: 23px;
+  margin: 24px 0 14px;
+}
+.template-fieldset {
+  padding: 0;
+  margin: 24px 0 0;
+  border: 0;
+  min-width: 0;
+}
+.template-fields {
+  display: grid;
+  gap: 16px;
+}
+.template-fieldset textarea {
+  resize: vertical;
+}
+.template-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+.template-check input {
+  width: 18px;
+  height: 18px;
+}
+.template-section {
+  border-top: 1px solid var(--border);
+  padding: 14px 0;
+}
+.template-section summary {
+  cursor: pointer;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.template-section .template-fields {
+  margin-top: 16px;
+}
+.template-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+.template-note,
+.template-notice {
+  line-height: 1.6;
+  border-left: 3px solid var(--accent);
+  padding: 8px 14px;
+  font-size: 13px;
+}
+.template-links {
+  margin-top: 36px;
+}
+.template-links article {
+  border-top: 1px solid var(--border);
+  padding: 14px 0;
+}
+.template-links article p {
+  font-size: 13px;
+}
+.template-links a {
+  color: var(--accent);
+  font-size: 14px;
+}
+.template-upload {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+  font-size: 14px;
+}
+.template-upload input {
+  max-width: 100%;
+  font: inherit;
+}
+.template-import {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+.template-configuration input[readonly],
+.template-configuration textarea[readonly] {
+  background: var(--soft);
+}
+.template-configuration textarea {
+  overflow-wrap: anywhere;
+}
+.template-editor .field {
+  min-width: 0;
+}
+@media (max-width: 600px) {
+  .template-editor {
+    padding: 18px;
+  }
+  .template-actions {
+    gap: 12px;
+  }
+  .template-editor h2 {
+    font-size: 21px;
+  }
+}
+
+.template-review-summary {
+  margin: 0 0 22px;
+}
+.template-review-identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.template-review-identity > span {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 48px;
+  border-radius: 16px;
+  color: var(--ink);
+  font-size: 20px;
+  font-weight: 600;
+}
+.template-review-identity h3 {
+  font-size: 22px;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.template-review-identity p {
+  margin: 3px 0;
+}
+.template-review-role {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.65;
+  font-size: 14px;
+}
+.template-configuration input[type='color'] {
+  width: 76px;
+  height: 42px;
+  padding: 5px;
+}
+
+.template-picture-review {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.template-picture-review > span {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+}
+.template-picture-review p {
+  margin: 0 0 6px;
+}
+.template-review-identity > span {
+  padding: 4px;
+}
+.template-review-identity > span > span {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

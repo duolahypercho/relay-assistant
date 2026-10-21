@@ -1,0 +1,45 @@
+# Follow-ups during work
+
+When a live, tool-capable assistant has finished by asking a saved question, the owner can answer in the normal composer or in a voice call. The model can bind that existing owner message to the question and continue its original request. The question card remains available for an explicit choice or answer. A topic change leaves the question pending; ambiguous replies should be clarified rather than assigned to a question by guesswork.
+
+This continuation reuses the current message and run. The server supplies the literal answer, original attachments, selected apps, saved skill, assistant identity and previous answers; the model cannot substitute answer text. Binding the question and removing its previous planning checkpoint happen in one SQLite transaction. Restart resumes the bound request or safely retries the decision before any work. Resolution cannot discard ordinary tool work already attempted. A mixed resolution/work batch executes nothing and must be retried separately.
+
+While a question is eligible, a dedicated decision prompt identifies the actual owner message and gives the model two choices: bind the answer or begin a separate request. It can include an unrelated conversational answer in that second choice, completing the reply in the same model step. A new request that requires saved work must continue through its tools instead. Mixed decision/action batches execute nothing; direct prose without a decision stays hidden while one automatic repair is attempted. A repeated refusal fails explicitly. These are internal steps, with no additional owner controls.
+
+Only pending questions already visible before this owner turn, in this chat and for this assistant, are eligible; the newest eight are offered to the model. Quoted replies target their exact question. A group answer must explicitly address one assistant; broadcasts and automatic routing do not claim questions. Changed connected accounts and removed assistants reject continuation. Generated work, active corrections, selected skills and stop controls do not use this route. Routine restrictions and exact external-action reviews still apply; saying or typing yes does not approve an action. Interpretation depends on the selected model. Chat-only and sample connections keep their existing explicit question controls.
+
+A bounded recovery also preserves a short prose question when a direct English work request explicitly says to ask before proceeding or to ask and wait. This applies before ordinary tool work, to an initial request only. A following format hint such as “It will be saved with a .txt extension” is discarded without mistaking its future tense for completed work. Completion claims in the question or elsewhere still reject recovery. Quoted/code/example instructions, generated requests, multiple questions, secrets and action-approval prompts do not use that recovery. It does not classify every natural-language question or undo work a model performed too early. Other necessary questions still depend on the model calling `ask_question`.
+
+When continuing a bound answer, an `ask_question` call that repeats an answered prompt is rejected internally before another card is posted. Case, whitespace and a trailing question mark do not create a different question. The model receives the saved answer and can continue, or ask a specific clarification explaining a different missing detail. This compares prompts rather than attempting semantic equivalence; rephrased repetitions can still require model judgment. Later in-flight corrections release this check so the owner can change direction. No answer is treated as external-action approval.
+
+In Main, a side chat, or an assistant’s direct conversation, type a correction and choose **Send** while a reply is running. Relay adds it to the current request. **Queue follow-up** explicitly saves a separate request for afterward. On phones this option keeps its text label and a 44-point target. **Stop reply** remains available with or without a typed draft. Navigation opens its own page without adding a message; explicitly choosing Queue sends the text as a request.
+
+This independently implements the direction described by [Grok Bot’s messaging guide](https://docs.x.ai/grok-bot/chat-and-collaboration): owner instructions can redirect ongoing work. No reference code, prompts or assets are used.
+
+## Behavior
+
+A correction retains its own ordinary message, attachments, quoted context, shared-source labels, selected app revisions and frozen skill version. It uses the active request’s assistant and model selection. Multiple corrections are processed in order. The final answer replies to the latest accepted correction. Saved results from earlier steps remain available.
+
+If a model response is in flight, Relay aborts that response and asks again with the correction. A late response from a provider that ignores cancellation cannot publish text or execute its proposed tools. If a tool has already started, it finishes through its existing cancellation and outcome rules; Relay records the result before discarding the remaining obsolete plan. Sending a correction does not roll back finished actions. Stop reply still cancels the reply and pauses explicitly queued follow-ups; it is not an undo command.
+
+The model receives completed tool receipts and explicit non-execution receipts for skipped steps. This preserves tool-call ordering across providers. The private checkpoint saves the full continuation state, including a final response while its worker is still committing it. SQLite’s phase column remains authoritative after resuming a previously final checkpoint. A restart during an uncertain action still fails closed rather than replaying it.
+
+Accepted corrections are carried into inline-question answers and deferred computer-job, website and app-action continuations. Specialist returns retain the source run’s correction context. A selected app continues to use the existing scope/revision checks. Learning a preference must quote the latest accepted owner message; queued or unaccepted messages cannot become that run’s learning source. Existing restrictions on routine/generated work and exact external-action reviews remain in place.
+
+## Scope and limits
+
+The browser sends `delivery: "now"` for direct chats. `delivery: "queue"`, an omitted delivery field, and generated/internal requests preserve existing queue semantics. Group conversations retain their explicit queue/routing behavior. A send during a fixed reminder queues a new reply rather than being absorbed into the reminder. At most 32 corrections join one run; after that, the composer retains its draft and asks for a queued request or a stopped reply. Each accepted correction allows another model round within that bound. An in-progress tool may take time to finish before the new instruction is applied.
+
+An ordinary correction handles an actively running reply. An explicit standalone **Stop now** separately cancels this chat’s active and deferred work; see STOP_WORK.md. Corrections do not automatically cancel detached jobs, change completed work, replace pending action reviews, change a routine’s saved schedule, merge separately queued requests. Direct-message scheduling now has reserved capacity and safe-boundary yielding; see [WORK_PRIORITY.md](WORK_PRIORITY.md). Detached-process preemption and group steering remain separate parity work. Physical-device runtime, Android and real-model interpretation quality require their own acceptance.
+
+## Reproduce
+
+- `node --test tests/chat-question-answers.test.mjs`: literal chat/voice answers, original context, account/chat/assistant boundaries, stop controls, rejected mixed batches, completed-work retention and SQLite restart on either side of binding.
+- `RELAY_VOICE_TEST_MODEL=<installed model> RELAY_LOCAL_MODEL_TEST_MODELS=<independent cache> node scripts/test-conversational-answers-live.mjs`: actual local model, packaged Mac renderer, synthetic microphone through Whisper and native speech. Uses the existing isolated listening-test cache and no owner accounts. Keeps failures and exact review/file evidence in its evidence directory.
+- `node --test tests/steering.test.mjs`: queue isolation, cancellation races, completed tool retention, attachment/skill/app context, checkpoints, questions, memory attribution, stop and bounds.
+- `node scripts/test-steering-ui.mjs`: actual desktop/phone UI, independent HTTP model, file tool, queue, draft/reload and navigation.
+- `node scripts/test-steering-ui.mjs --mac`: packaged Mac renderer against the isolated server.
+- `node scripts/test-steering-native.mjs`: isolated iPhone Simulator with native keyboard, saved-file preview, Send/Queue and full relaunch.
+- `node scripts/test-steering-computer.mjs`: real isolated Docker computer. One command writes once; an obsolete second command is skipped; the corrected command appends to the same saved file.
+
+Controlled providers verify transport, state and interaction, not natural-language judgment for all live models. See VERIFICATION.md for completed runs and outstanding gates.

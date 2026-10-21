@@ -1,0 +1,190 @@
+.assistants-page {
+  max-width: 780px;
+  margin: 0 auto;
+}
+.assistant-page-intro {
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+.assistant-page-actions,
+.assistant-profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+.assistant-profile-list {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+}
+.assistant-profile-row,
+.assistant-editor {
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 24px;
+  background: var(--surface);
+}
+.assistant-profile-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.assistant-profile-heading > div {
+  flex: 1;
+  min-width: 0;
+}
+.assistant-profile-heading h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 19px;
+  overflow-wrap: anywhere;
+}
+.assistant-profile-heading h2 small {
+  border-radius: 8px;
+  padding: 4px 7px;
+  background: var(--soft);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 500;
+}
+.assistant-profile-heading p,
+.assistant-profile-counts {
+  color: var(--muted);
+  font-size: 12px;
+}
+.assistant-profile-heading p {
+  margin: 5px 0 0;
+}
+.assistant-role-description {
+  white-space: pre-wrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  line-height: 1.65;
+  font-size: 14px;
+}
+.assistant-profile-actions .text-button,
+.assistant-more > div {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.assistant-more summary {
+  font-size: 13px;
+  cursor: pointer;
+  padding: 8px 0;
+  color: var(--muted);
+}
+.assistant-more[open] {
+  flex-basis: 100%;
+}
+.assistant-more > div {
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-top: 8px;
+}
+.assistant-editor > h2 {
+  margin: 22px 0;
+  font-size: 23px;
+  overflow-wrap: anywhere;
+}
+.assistant-identity-fields {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 100px;
+  gap: 16px;
+}
+.assistant-identity-fields input[type='color'] {
+  padding: 5px;
+  width: 100%;
+  min-height: 42px;
+}
+.assistant-profile-memory {
+  border-top: 1px solid var(--border);
+  margin-top: 24px;
+  padding-top: 18px;
+}
+.assistant-profile-memory > summary {
+  cursor: pointer;
+  padding: 8px 0;
+  font-weight: 600;
+}
+.assistant-profile-memory .memory-manager {
+  margin-top: 20px;
+}
+.assistant-roster {
+  max-height: 26vh;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+.assistant-roster .thread-link {
+  gap: 10px;
+}
+.assistant-roster-add {
+  margin: 8px 16px;
+  font-size: 12px;
+}
+.role-badge {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 34px;
+  border-radius: 12px 12px 15px 15px;
+  color: var(--ink);
+  font-weight: 600;
+}
+.assistant-initial,
+.companion-initial {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  min-width: 15px;
+  height: 15px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--surface);
+  border-radius: 50%;
+  font-size: 9px;
+  font-weight: 700;
+  color: #243b31;
+}
+@media (max-width: 600px) {
+  .assistant-profile-row,
+  .assistant-editor {
+    padding: 18px;
+  }
+  .assistant-profile-actions {
+    gap: 12px;
+  }
+  .assistant-identity-fields {
+    grid-template-columns: minmax(0, 1fr) 85px;
+    gap: 10px;
+  }
+}
+
+.assistant-skill-selection {
+  margin: 20px 0;
+}
+.assistant-skill-selection summary {
+  cursor: pointer;
+  padding: 8px 0;
+  font-weight: 600;
+}
+.assistant-skill-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0;
+  font-size: 13px;
+}
+.assistant-skill-option input {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}

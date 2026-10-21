@@ -1,0 +1,104 @@
+.handoff-card {
+  width: min(100%, 420px);
+  min-width: min(340px, calc(100vw - 64px));
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface);
+  color: var(--ink);
+  box-sizing: border-box;
+}
+.handoff-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.handoff-heading > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.handoff-heading span[role='status'] {
+  font-size: 12px;
+  color: var(--muted);
+}
+.handoff-card p {
+  margin: 10px 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.55;
+}
+.handoff-card details {
+  font-size: 13px;
+  margin: 10px 0;
+  color: var(--muted);
+}
+.handoff-card summary {
+  cursor: pointer;
+  min-height: 28px;
+  display: list-item;
+}
+.handoff-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.handoff-actions button {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  min-height: 40px;
+}
+.handoff-files {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.handoff-error {
+  font-size: 13px;
+}
+.delegation-label {
+  font-size: 12px;
+  display: block;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.message-bubble:has(> .markdown:empty):not(:has(.quoted-message)) {
+  display: none;
+}
+
+.handoff-card .question-card {
+  padding: 12px 0 0;
+  border: 0;
+  border-top: 1px solid var(--border);
+  border-radius: 0;
+  margin: 12px 0 2px;
+}
+.handoff-card .question-answer input {
+  font-size: 16px;
+}
+
+.group-handoff-card {
+  padding: 10px 12px;
+  min-width: 0;
+  width: min(100%, 360px);
+  border: 0;
+  background: var(--soft);
+  border-radius: 14px;
+}
+.group-handoff-card .assistant-avatar {
+  width: 28px;
+  height: 28px;
+}
+.group-handoff-card .handoff-heading strong {
+  font-size: 13px;
+}
+.group-handoff-card > p {
+  margin: 6px 0;
+  font-size: 13px;
+}
+.group-handoff-card .handoff-actions button {
+  min-height: 34px;
+  font-size: 12px;
+}

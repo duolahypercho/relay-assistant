@@ -1,0 +1,13 @@
+# Try a failed reply again
+
+A failed reply with a safe saved recovery point shows **Try again** immediately below its bubble. One tap continues the same request, using the currently selected model. The original text, attachments and any unsent draft stay in place; retry adds no duplicate user message. Completed file and review cards remain accessible even when the final reply fails. The earlier failure stays in the transcript and the recovered reply appears when ready.
+
+**Trying again…** replaces the button while queued or running. Reload and app relaunch retain this state. Stop and computer handback still apply; retry cannot take computer control from the owner. A newer user request in the same chat, another active run, archive, cancellation or expired recovery removes the action. Main and side chats keep their own scope. A group reply can resume only while its original assistant is still a member. Routines, voice calls, delegated handoffs and group routing use their existing controls.
+
+The server resumes from a private SQLite checkpoint after confirmed tool results. It does not automatically replay completed calls. If it stopped during an action with an uncertain outcome, it offers no retry; inspect the saved work and continue with a new message. A model could still propose another action, so tool boundaries and external-action review remain in force. Switching models strips the previous provider's private state while preserving ordinary tool receipts.
+
+Up to eight failed checkpoints are retained for seven days, with the existing 12 MB per-checkpoint cap. Successful/cancelled runs and expired/evicted failures release their checkpoints. Private context is absent from workspace snapshots and exports. Retry requires the authenticated owner and same-origin command route, and duplicate requests cannot enqueue a second attempt.
+
+Run `node --test tests/chat-retry.test.mjs`, `npm run chat:retry:test:ui`, `npm run chat:retry:test:mac`, and `npm run chat:retry:test:ios`. The UI fixtures use a deliberately failing HTTP model with the real agent, tools and database. They test recovery, not model reasoning quality. See VERIFICATION.md and the chat-retry evidence receipts for completed checks and platform scope.
+
+For the bounded real-model scenario, set `RELAY_RETRY_TEST_MODEL` and `RELAY_LOCAL_MODEL_TEST_MODELS` to an already installed tool-capable Ollama model and dedicated test cache, then run `npm run chat:retry:test:live`. It uses isolated port 41334, creates a file from a normal-language request, injects one HTTP 503 after the actual save, and clicks Try again in a phone browser. It checks the saved bytes and exact request/file counts. It does not configure the owner workspace.

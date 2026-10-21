@@ -1,0 +1,154 @@
+.usage-page {
+  max-width: 760px;
+}
+.usage-toolbar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 24px 0;
+}
+.usage-toolbar label {
+  display: grid;
+  gap: 6px;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.usage-toolbar select {
+  min-width: 170px;
+  min-height: 44px;
+}
+.usage-totals {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 28px 0 16px;
+}
+.usage-totals dt,
+.usage-note,
+.usage-updated,
+.usage-empty p {
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.usage-totals dd {
+  margin: 8px 0 0;
+  font-size: clamp(1.35rem, 4vw, 2rem);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.usage-page h3 {
+  font-size: 1rem;
+}
+.usage-models {
+  margin-top: 32px;
+}
+.usage-models details {
+  border-bottom: 1px solid var(--border);
+  padding: 16px 0;
+}
+.usage-models summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  cursor: pointer;
+  list-style: none;
+  min-height: 44px;
+}
+.usage-models summary::-webkit-details-marker {
+  display: none;
+}
+.usage-models summary::after {
+  content: '+';
+  font-size: 1.2rem;
+  color: var(--muted);
+}
+.usage-models details[open] summary::after {
+  content: '−';
+}
+.usage-models summary > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.usage-models summary > span:first-child {
+  flex: 1;
+}
+.usage-models summary small {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+.usage-model-total {
+  text-align: right;
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+}
+.usage-breakdown {
+  margin: 22px 0 12px;
+}
+.usage-breakdown > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 10px 0;
+  font-size: 0.875rem;
+}
+.usage-breakdown dt {
+  color: var(--muted);
+}
+.usage-breakdown dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+.usage-explainer {
+  margin: 26px 0 12px;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.usage-explainer summary {
+  cursor: pointer;
+  padding: 10px 0;
+}
+.usage-explainer p {
+  color: var(--muted);
+}
+.usage-error {
+  color: var(--danger, #a33434);
+}
+.usage-empty {
+  padding: 12px 0;
+}
+.usage-updated {
+  margin-top: 24px;
+  font-size: 0.8125rem;
+}
+.usage-report-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 12px 0;
+  font-size: 0.875rem;
+}
+.usage-report-option input {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.usage-report-option small {
+  display: block;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-top: 4px;
+}
+@media (max-width: 480px) {
+  .usage-models summary {
+    gap: 10px;
+  }
+  .usage-model-total {
+    max-width: 42%;
+  }
+}

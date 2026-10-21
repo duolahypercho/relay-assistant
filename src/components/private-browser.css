@@ -1,0 +1,273 @@
+.computer-modes {
+  display: flex;
+  gap: 4px;
+  margin: 0 0 20px;
+  padding: 4px;
+  background: var(--soft);
+  border-radius: 12px;
+  width: fit-content;
+}
+.computer-modes button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  border-radius: 9px;
+  padding: 9px 18px;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.computer-modes button[aria-pressed='true'] {
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 1px 5px #0001;
+}
+.private-browser-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.private-browser-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+.private-browser-heading button {
+  flex-shrink: 0;
+}
+.private-browser-downloads {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.private-browser-downloads button {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  text-align: left;
+}
+.private-browser-address {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.private-browser-address input {
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  min-width: 0;
+  flex: 1;
+  padding: 8px 0;
+}
+.private-browser-address input:focus {
+  outline-offset: 4px;
+}
+.private-browser-viewport {
+  overflow: auto;
+  background: #fff;
+}
+.private-browser-page {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 8/5;
+  isolation: isolate;
+}
+.private-browser-viewport.is-zoomed .private-browser-page {
+  width: 1280px;
+}
+.private-browser-page > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.private-browser-field,
+.private-browser-target {
+  position: absolute;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: transparent;
+  min-width: 0;
+  min-height: 0;
+}
+.private-browser-target {
+  cursor: pointer;
+}
+.private-browser-field {
+  font-size: 16px;
+}
+.private-browser-field:focus {
+  background: #fff;
+  color: #17251e;
+  box-shadow: 0 0 0 2px #416c50;
+  outline: none;
+  z-index: 2;
+}
+.private-browser-target:focus-visible,
+.private-browser-target:hover {
+  outline: 2px solid #416c50;
+  outline-offset: 1px;
+  background: #416c5018;
+}
+.private-browser-footer {
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+.private-browser-footer > div {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.private-browser-review {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 18px;
+  background: var(--surface);
+}
+.private-browser-review p {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 6px 0 10px;
+}
+.private-browser-review ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 16px;
+  max-height: 280px;
+  overflow: auto;
+}
+.private-browser-review li {
+  margin-top: 8px;
+}
+.private-browser-review summary {
+  font-size: 13px;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+.private-browser-review summary span {
+  font-weight: 650;
+}
+.private-browser-review pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  background: var(--soft);
+  padding: 12px;
+  font-size: 11px;
+  max-height: 200px;
+  overflow: auto;
+}
+.private-browser-review-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.private-browser-data {
+  margin: 20px 2px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.private-browser-data summary {
+  cursor: pointer;
+}
+.private-browser-data p {
+  max-width: 650px;
+  line-height: 1.6;
+}
+@media (max-width: 650px) {
+  .private-browser-heading {
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .private-browser-heading p {
+    max-width: 150px;
+    line-height: 1.5;
+  }
+  .private-browser-heading button {
+    font-size: 12px;
+  }
+  .private-browser-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .private-browser-review {
+    padding: 14px;
+  }
+  .private-browser-viewport .private-browser-page {
+    width: 900px;
+  }
+  .private-browser-viewport:not(.is-zoomed) .private-browser-page {
+    width: 100%;
+  }
+}
+
+.private-browser-request {
+  padding: 10px 0;
+}
+.private-browser-request > strong {
+  font-size: 13px;
+  font-weight: 600;
+}
+.private-browser-review .private-browser-destination {
+  overflow-wrap: anywhere;
+}
+.private-browser-request dl {
+  margin: 12px 0;
+  display: grid;
+  gap: 8px;
+  font-size: 13px;
+}
+.private-browser-request dl > div {
+  display: flex;
+  gap: 14px;
+}
+.private-browser-request dt {
+  color: var(--muted);
+  text-transform: capitalize;
+  min-width: 60px;
+}
+.private-browser-request dd {
+  margin: 0;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+/* Keep handoff reachable after a mobile keyboard scrolls a page field into view. */
+.private-browser-heading {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  padding: 10px 0;
+  background: var(--background);
+}
+.workspace-computer-page .workspace-page-scroll:has(.private-browser) {
+  scroll-padding-top: 80px;
+}
+.private-browser-field,
+.private-browser-address input {
+  scroll-margin-top: 80px;
+}

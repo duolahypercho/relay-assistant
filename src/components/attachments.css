@@ -1,0 +1,170 @@
+.photo-attachments {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+}
+.attachment-photos {
+  display: grid;
+  gap: 5px;
+  width: min(360px, 100%);
+}
+.attachment-photos.photo-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.attachment-item {
+  position: relative;
+  min-width: 0;
+}
+.photo-attachments .attachment-open {
+  width: 100%;
+  border: 0;
+  background: var(--soft);
+  color: var(--ink);
+  border-radius: 15px;
+  overflow: hidden;
+  text-align: left;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+}
+.attachment-photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  position: relative;
+  overflow: hidden;
+}
+.attachment-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.single-photo .attachment-photo {
+  aspect-ratio: auto;
+  min-height: 90px;
+}
+.single-photo .attachment-photo img {
+  height: auto;
+  max-height: 360px;
+  object-fit: contain;
+}
+.photo-placeholder {
+  display: block;
+  position: absolute;
+  inset: 0;
+  background: var(--soft);
+}
+.photo-unavailable {
+  min-height: 90px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+  text-align: center;
+  color: var(--muted);
+}
+.attachment-name {
+  display: block;
+  max-width: 100%;
+  padding: 7px 10px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.attachment-documents {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.attachment-photos + .attachment-documents {
+  margin-top: 8px;
+}
+.attachment-documents .attachment-item {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  background: var(--soft);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.attachment-documents .attachment-open {
+  flex-direction: row;
+  align-items: center;
+  min-width: 0;
+  min-height: 40px;
+  padding: 0 10px;
+}
+.attachment-documents .attachment-open svg {
+  flex-shrink: 0;
+}
+.photo-attachments .attachment-remove {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--ink);
+}
+.is-document > .attachment-remove {
+  margin-right: 4px;
+}
+.is-photo > .attachment-remove {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  box-shadow: 0 1px 4px #0002;
+}
+.draft-attachments .attachment-photos {
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+  gap: 8px;
+  padding: 2px 2px 5px;
+  scroll-snap-type: x proximity;
+}
+.draft-attachments .is-photo {
+  flex: 0 0 92px;
+  scroll-snap-align: start;
+}
+.draft-attachments .attachment-photo {
+  aspect-ratio: 1;
+  min-height: 0;
+  height: 92px;
+}
+.draft-attachments .attachment-photo img {
+  height: 100%;
+  object-fit: cover;
+}
+.draft-attachments .is-photo .attachment-name {
+  font-size: 11px;
+  padding: 5px 7px;
+}
+.photo-attachments .attachment-open:focus-visible,
+.photo-attachments .attachment-remove:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+@media (hover: hover) {
+  .photo-attachments .attachment-open:hover {
+    box-shadow: inset 0 0 0 1px var(--border);
+  }
+  .photo-attachments .attachment-remove:hover {
+    background: var(--tint);
+  }
+}
+@media (pointer: coarse) {
+  .photo-attachments .attachment-remove {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+  }
+}

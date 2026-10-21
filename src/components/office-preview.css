@@ -1,0 +1,21 @@
+.office-preview pre {
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  padding: 16px;
+  background: var(--tint);
+  border-radius: 12px;
+  max-height: 52vh;
+  overflow: auto;
+}
+.office-preview details {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 12px 0;
+}
+.office-preview summary {
+  cursor: pointer;
+}

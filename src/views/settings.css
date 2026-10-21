@@ -1,0 +1,93 @@
+.workspace-settings-page .workspace-page-toolbar,
+.workspace-settings-page .workspace-page-content {
+  width: min(100%, 816px);
+}
+.settings-index {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.settings-intro {
+  color: var(--muted);
+  margin: -10px 0 24px;
+  font-size: 0.9375rem;
+}
+.settings-sections {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 30px;
+}
+.settings-sections button {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-height: 84px;
+  padding: 16px 10px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  border-radius: 10px;
+  text-align: left;
+  color: var(--ink);
+}
+.settings-sections button:hover {
+  background: var(--sidebar);
+}
+.settings-sections button > svg {
+  color: var(--muted);
+  flex-shrink: 0;
+}
+.settings-sections button > span {
+  min-width: 0;
+  flex: 1;
+}
+.settings-sections strong {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 550;
+}
+.settings-sections small {
+  display: block;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.settings-detail {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.settings-detail > [hidden] {
+  display: none;
+}
+.settings-row .notification-workspace-heading {
+  font-size: 1rem;
+}
+.settings-detail .settings-card {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  margin-bottom: 30px;
+}
+.settings-detail .settings-card + .settings-card {
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.settings-detail .settings-card > .settings-row:first-child {
+  border: 0;
+  margin-top: 0;
+  padding-top: 0;
+}
+.settings-detail .color-options button {
+  width: 32px;
+  height: 32px;
+}
+@media (max-width: 600px) {
+  .settings-sections {
+    grid-template-columns: 1fr;
+  }
+  .settings-sections button {
+    min-height: 78px;
+    padding: 14px 8px;
+  }
+}

@@ -1,0 +1,107 @@
+/* Comfortable phone hit areas; keep icons and circular fills compact. */
+@media (max-width: 720px) {
+  .topbar {
+    height: 88px;
+    min-height: 88px;
+  }
+  .topbar .icon-button {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+  }
+  .topbar .sidebar-toggle {
+    left: 6px;
+    padding: 4px;
+    background-clip: content-box;
+  }
+  .topbar .global-search {
+    left: 50px;
+  }
+  .topbar .top-actions {
+    right: 6px;
+    pointer-events: none;
+  }
+  .topbar .top-actions > button {
+    pointer-events: auto;
+  }
+  .topbar .assistant-details-button {
+    min-height: 44px;
+  }
+  .topbar .companion-lane {
+    right: 44px;
+  }
+  .topbar .companion-toggle {
+    width: 44px;
+    height: 44px;
+    bottom: 0;
+  }
+  .topbar .sample-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+  .topbar .workspace-shortcut,
+  .topbar .sample-badge .mode-label {
+    display: none;
+  }
+  .topbar .sample-badge .mode-short {
+    display: inline;
+  }
+  .topbar .sample-badge > span {
+    padding: 5px 7px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: var(--sidebar);
+  }
+  .chat-workspace .conversation-menu-trigger,
+  .conversation-row > .conversation-menu-trigger {
+    min-width: 44px;
+    width: 44px;
+    height: 44px;
+  }
+  .conversation-row > .thread-link {
+    padding-right: 47px;
+  }
+  .chat-workspace .composer {
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
+    gap: 0 4px;
+    padding: 5px 6px;
+  }
+  .chat-workspace .composer:has(.composer-voice) {
+    grid-template-columns: 44px minmax(0, 1fr) 44px 44px;
+  }
+  .chat-workspace .composer:has(.composer-voice):has(.choose-app-button) {
+    grid-template-columns: 92px minmax(0, 1fr) 44px 44px;
+  }
+  .chat-workspace .composer-tools .composer-plus,
+  .chat-workspace .composer-voice,
+  .chat-workspace .composer-bottom > .send-button {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 5px;
+    background-clip: content-box;
+  }
+  .chat-workspace .message-actions {
+    flex-wrap: wrap;
+  }
+  .chat-workspace .message-actions .icon-button {
+    min-width: 44px;
+    min-height: 44px;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+  }
+  .chat-workspace .reply-preview .icon-button,
+  .chat-workspace .voice-input button,
+  .chat-workspace .computer-pause-note button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}

@@ -1,0 +1,6 @@
+**
+!docker
+!docker/**
+
+# Private portable computer backups
+**/*.relaybackup

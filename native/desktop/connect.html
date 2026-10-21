@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'"
+    />
+    <title>Connect your assistant</title>
+    <link rel="stylesheet" href="connect.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Take your assistant with you.</h1>
+      <p>
+        Connect to your own Relay server to use the same conversations and work on desktop and
+        mobile.
+      </p>
+      <form id="connect">
+        <label for="server">Server address or connection link</label
+        ><input
+          id="server"
+          type="url"
+          required
+          placeholder="https://relay.yourdomain.com"
+          autocomplete="url"
+        />
+        <p id="error" role="alert"></p>
+        <button type="submit">Connect</button>
+      </form>
+      <button class="secondary" id="local">Use this computer's assistant</button
+      ><small
+        >A connection link grants this device full access to that workspace. An address alone asks
+        for the owner key in the app.</small
+      >
+    </main>
+    <script src="connect.js"></script>
+  </body>
+</html>

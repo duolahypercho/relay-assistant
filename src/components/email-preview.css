@@ -1,0 +1,77 @@
+.email-preview {
+  min-width: 0;
+  padding: 16px 0;
+  color: var(--ink);
+}
+.email-preview h2 {
+  font-size: 20px;
+  line-height: 1.4;
+  margin: 0 0 16px;
+  overflow-wrap: anywhere;
+}
+.email-preview dl {
+  margin: 0;
+  display: grid;
+  gap: 8px;
+  font-size: 13px;
+}
+.email-preview dl > div {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  gap: 10px;
+}
+.email-preview dt {
+  color: var(--muted);
+}
+.email-preview dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.email-body {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font: inherit;
+  line-height: 1.65;
+  margin: 24px 0;
+}
+.email-attachments {
+  margin: 24px 0;
+}
+.email-attachments h3 {
+  font-size: 14px;
+}
+.email-attachment {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  background: var(--soft);
+  color: var(--ink);
+  margin: 8px 0;
+}
+.email-attachment > span:first-of-type {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.email-attachment small {
+  display: block;
+  color: var(--muted);
+  margin-top: 3px;
+}
+.email-attachment > svg {
+  flex-shrink: 0;
+}
+.email-preview details {
+  font-size: 13px;
+  margin-top: 20px;
+}
+.email-attachment-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,71 @@
+name: Verify Relay
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      RELAY_EVIDENCE_DIR: evidence
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run format:check
+      - run: npm test
+      - run: npm run build
+      - run: npm run release:source
+      - run: npm run test:e2e
+      - run: npm run chat:reading:test:ui
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-verification
+          path: |
+            playwright-report/
+            test-results/
+            evidence/
+          retention-days: 7
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: relay-source
+          path: |
+            release/source/*.zip
+            release/source/*.zip.sha256
+          retention-days: 7
+  linux-desktop:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      RELAY_EVIDENCE_DIR: evidence
+      ELECTRON_SKIP_BINARY_DOWNLOAD: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run desktop:test:linux
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: linux-desktop-verification
+          path: evidence/linux-desktop-*/
+          retention-days: 7
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: relay-linux-installer
+          path: |
+            release/desktop/linux-validation-*/*.deb
+            release/desktop/linux-validation-*/*.deb.sha256
+          retention-days: 7

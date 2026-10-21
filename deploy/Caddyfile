@@ -1,0 +1,10 @@
+{
+  admin off
+ default_sni {$RELAY_DOMAIN}
+  skip_install_trust
+}
+
+{$RELAY_DOMAIN} {
+  encode zstd gzip
+  reverse_proxy app:4173
+}

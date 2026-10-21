@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reconnect to Relay</title>
+  </head>
+  <body class="native-reconnect">
+    <main class="native-reconnect-card">
+      <span class="native-reconnect-mark" aria-hidden="true">r.</span>
+      <h1 data-connection-copy="Let’s reconnect.">Let’s reconnect.</h1>
+      <p
+        data-connection-copy="Your assistant’s server is unreachable. Your conversations and work stay saved there."
+      >
+        Your assistant’s server is unreachable. Your conversations and work stay saved there.
+      </p>
+      <p id="address"></p>
+      <div class="native-reconnect-actions">
+        <button id="retry" type="button" data-connection-copy="Try again">Try again</button>
+        <button id="connection" type="button" data-connection-copy="Change server">
+          Change server
+        </button>
+      </div>
+      <p id="error" role="alert"></p>
+    </main>
+    <script type="module" src="/src/native-reconnect.ts"></script>
+  </body>
+</html>

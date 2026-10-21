@@ -1,0 +1,122 @@
+.voice-call {
+  flex-shrink: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px 12px;
+  padding: 10px 12px;
+  margin: 0 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface);
+  color: var(--ink);
+}
+.voice-call-heading {
+  min-width: 0;
+}
+.voice-call-context {
+  font-size: 12px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+.voice-call p {
+  margin: 0;
+}
+.voice-call [role='status'] {
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.voice-call-meta {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 11px;
+}
+.voice-call-meta time {
+  margin-left: 3px;
+  font-variant-numeric: tabular-nums;
+}
+.voice-call .voice-call-note,
+.voice-call-error {
+  grid-column: 1 / -1;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.voice-call-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.voice-call-controls button {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.voice-call-end {
+  background: var(--ink);
+  color: var(--surface);
+  border: 0;
+  border-radius: 22px;
+  white-space: nowrap;
+}
+.voice-call-summary {
+  padding: 12px 16px;
+  display: grid;
+  gap: 4px;
+}
+.voice-call-summary span {
+  color: var(--muted);
+  font-size: 12px;
+}
+.chat-workspace .composer:has(.composer-call) {
+  grid-template-columns: 40px minmax(0, 1fr) 38px 38px 40px;
+}
+.chat-workspace .composer:has(.composer-call):has(.choose-app-button) {
+  grid-template-columns: 84px minmax(0, 1fr) 38px 38px 40px;
+}
+.chat-workspace .composer .composer-call {
+  grid-column: 4;
+}
+.chat-workspace .composer:has(.composer-call) .send-button {
+  grid-column: 5;
+}
+@media (max-width: 600px) {
+  .chat-workspace .composer:has(.composer-call) {
+    grid-template-columns: 44px minmax(0, 1fr) 44px 44px 44px;
+  }
+  .chat-workspace .composer:has(.composer-call):has(.choose-app-button) {
+    grid-template-columns: 92px minmax(0, 1fr) 44px 44px 44px;
+  }
+  .chat-workspace .composer:has(.composer-call) textarea {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  .chat-workspace .composer:has(.composer-call) .composer-tools,
+  .chat-workspace .composer:has(.composer-call) .composer-voice,
+  .chat-workspace .composer:has(.composer-call) .send-button {
+    grid-row: 3;
+  }
+  .voice-call {
+    gap: 8px;
+    padding: 8px 10px;
+  }
+  .voice-call-control-label {
+    display: none;
+  }
+  .voice-call-controls button {
+    font-size: 12px;
+  }
+  .voice-call.needs-attention .voice-call-controls {
+    grid-column: 1 / -1;
+  }
+}

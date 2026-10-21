@@ -1,0 +1,158 @@
+.personal-ideas {
+  max-width: 940px;
+  margin-inline: auto;
+}
+.idea-preferences {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-block: 8px 20px;
+  border-bottom: 1px solid var(--border);
+}
+.idea-preferences .field {
+  min-width: 250px;
+  margin: 0;
+}
+.idea-preferences p,
+.idea-timing,
+.ideas-explanation,
+.idea-check-status,
+.idea-hidden p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.idea-preferences p {
+  max-width: 430px;
+  margin: 0;
+}
+.idea-check-status {
+  min-height: 28px;
+  margin-top: 10px;
+}
+.personal-idea-list {
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
+}
+.personal-idea {
+  padding: 22px 24px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+}
+.personal-idea-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.personal-idea-top > svg {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.personal-idea-top h2 {
+  font-size: 17px;
+  font-weight: 650;
+  margin: 0;
+  flex: 1;
+}
+.personal-idea > p {
+  line-height: 1.65;
+  margin: 12px 0;
+}
+.personal-idea .idea-timing {
+  margin-top: -4px;
+}
+.idea-evidence {
+  margin-block: 16px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.idea-evidence summary,
+.idea-hidden summary {
+  cursor: pointer;
+  line-height: 1.5;
+  padding-block: 5px;
+}
+.idea-evidence ul {
+  list-style: none;
+  padding: 6px 0 0;
+  margin: 0;
+}
+.idea-evidence li {
+  margin: 8px 0;
+}
+.idea-evidence blockquote {
+  border-left: 2px solid var(--border);
+  margin: 6px 0;
+  padding-left: 12px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.idea-evidence .text-button {
+  text-align: left;
+  font-size: 13px;
+}
+.idea-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.idea-start {
+  margin-top: 8px;
+}
+.personal-idea textarea {
+  min-height: 95px;
+}
+.idea-hidden {
+  margin-top: 24px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.idea-hidden > div {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-block: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.idea-hidden > div > span {
+  flex: 1;
+}
+.ideas-explanation {
+  margin-block: 20px;
+}
+@media (max-width: 650px) {
+  .idea-preferences {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .idea-preferences .field {
+    min-width: 0;
+  }
+  .personal-idea {
+    padding: 16px;
+    border-radius: 16px;
+  }
+  .personal-idea-top {
+    gap: 8px;
+  }
+  .personal-idea-top h2 {
+    font-size: 16px;
+  }
+}
+
+/* The separate page already provides its accessible heading. */
+.workspace-page .personal-ideas .page-heading h2 {
+  display: none;
+}
+.workspace-page .personal-ideas .page-heading {
+  margin-bottom: 4px;
+}
+.personal-ideas .idea-preferences {
+  margin-top: 28px;
+  border-bottom: 0;
+  border-top: 1px solid var(--border);
+  padding-block: 20px 4px;
+}

@@ -1,0 +1,37 @@
+.chat-intro .chat-connect-ai {
+  margin: 22px 0 8px;
+  min-height: 44px;
+  border-radius: 999px;
+  padding: 11px 22px;
+}
+.chat-intro .chat-sample-examples {
+  margin: 12px 0 4px;
+  max-width: 100%;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+.chat-sample-examples > summary {
+  cursor: pointer;
+  padding: 10px 0;
+  min-height: 44px;
+}
+.chat-sample-examples > p {
+  margin: 5px 0 0;
+  font-size: 0.8125rem;
+}
+.chat-intro .chat-sample-examples .starting-points {
+  margin: 12px 0 8px;
+}
+.chat-model-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+.chat-model-note .text-button {
+  min-height: 44px;
+}

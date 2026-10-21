@@ -1,0 +1,66 @@
+.notification-choice {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 14px;
+  margin-top: 18px;
+}
+.notification-choice input {
+  width: 16px;
+  height: 16px;
+  margin-top: 4px;
+  accent-color: var(--blue);
+  flex-shrink: 0;
+}
+.notification-choice small,
+.notification-device small {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+  margin-top: 4px;
+}
+.notification-devices {
+  margin-top: 24px;
+}
+.notification-devices summary {
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 13px;
+}
+.notification-device {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+.notification-device strong {
+  font-size: 14px;
+}
+.notification-device > div {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.thread-unread {
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  background: var(--blue);
+  border-radius: 50%;
+  margin-left: auto;
+}
+.device-notifications .toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 52px;
+}
+.device-notifications .toggle-row > div {
+  flex: 1;
+  min-width: 0;
+}
+.device-notifications .toggle-row .switch {
+  flex-shrink: 0;
+}

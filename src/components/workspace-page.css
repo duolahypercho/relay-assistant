@@ -1,0 +1,94 @@
+.chat-pane {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+}
+.chat-pane[hidden] {
+  display: none;
+}
+.workspace-page {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.workspace-page-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: min(100%, 1100px);
+  margin: 0 auto;
+  padding: 12px 28px;
+}
+.workspace-page-toolbar > select {
+  width: auto;
+  max-width: 55%;
+  font-size: 0.8125rem;
+  padding: 8px 12px;
+}
+.workspace-page-toolbar > button {
+  min-height: 44px;
+  flex-shrink: 0;
+}
+.workspace-page-scroll {
+  flex: 1;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.workspace-page-content {
+  width: min(100%, 1100px);
+  margin: 0 auto;
+  padding: 18px 28px 40px;
+}
+.workspace-page-content > h1 {
+  font-size: 1.375rem;
+  letter-spacing: -0.03em;
+  margin: 0 0 24px;
+  outline: none;
+}
+.workspace-page-content > h1:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 4px;
+}
+.page-back-list {
+  margin: 0 0 18px;
+}
+.workspace-page > .chat-dock {
+  flex-shrink: 0;
+  margin: 10px auto max(12px, env(safe-area-inset-bottom));
+}
+.chat-dock button[aria-current='page'] {
+  background: var(--tint);
+  color: var(--blue);
+}
+@media (max-width: 720px) {
+  .workspace-page-toolbar {
+    padding: 6px 16px;
+    gap: 8px;
+  }
+  .workspace-page-content {
+    padding: 16px 16px 30px;
+  }
+  .workspace-page-toolbar > button {
+    font-size: 0.8125rem;
+  }
+}
+
+.workspace-page-content .page-heading .overline {
+  display: none;
+}
+
+/* File pages share the workspace shell and keep long uploaded names readable. */
+.workspace-files-page .workspace-page-content > h1 {
+  overflow-wrap: anywhere;
+}
+.file-page-preview {
+  min-width: 0;
+}
+.file-page-preview .modal-footer {
+  flex-wrap: wrap;
+  gap: 16px;
+}

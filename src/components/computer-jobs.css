@@ -1,0 +1,97 @@
+.computer-job-card {
+  max-width: 520px;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+}
+.computer-job-heading {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.computer-job-heading strong {
+  overflow-wrap: anywhere;
+}
+.computer-job-card > p {
+  margin: 6px 0 10px;
+  font-size: 13px;
+}
+.computer-job-card summary {
+  cursor: pointer;
+  font-size: 13px;
+}
+.computer-job-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+.computer-job-result {
+  min-width: 0;
+  font-size: 13px;
+}
+.computer-job-result p,
+.computer-job-result code {
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+.computer-job-result pre {
+  max-height: 220px;
+  overflow: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 12px;
+  padding: 10px;
+  border-radius: 9px;
+  background: var(--background);
+}
+.computer-job-list h3 {
+  font-size: 14px;
+  margin: 18px 0 10px;
+}
+.computer-job-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.computer-job-row > details {
+  min-width: 0;
+  flex: 1;
+}
+.computer-job-row summary {
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+.computer-job-row summary span {
+  display: block;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.computer-job-input {
+  margin-top: 12px;
+}
+.computer-job-input label {
+  display: block;
+  margin-bottom: 6px;
+}
+.computer-job-input form > div {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.computer-job-input input {
+  flex: 1 1 160px;
+  min-width: 0;
+  width: 100%;
+  font-size: 16px;
+}
+.computer-job-command {
+  margin-top: 12px;
+}
+.computer-job-input p:empty {
+  display: none;
+}

@@ -1,0 +1,47 @@
+node_modules/
+dist/
+data/
+.env
+.env.*
+!.env.example
+playwright-report/
+test-results/
+evidence/
+.sites-runtime/
+*.log
+.DS_Store
+release/
+native/mobile/ios/App/public/
+native/mobile/ios/App/App/public/
+native/mobile/android/app/src/main/assets/public/
+native/mobile/android/.gradle/
+native/mobile/android/local.properties
+native/mobile/android/**/build/
+native/mobile/ios/DerivedData/
+native/mobile/ios/**/xcuserdata/
+
+# Native push project configuration and provider signing credentials stay local.
+google-services.json
+GoogleService-Info.plist
+*.p8
+
+native/mobile/android/share-tests/.gradle/
+
+# Local hosting metadata is not part of the independent source release.
+.openai/
+
+# Private portable computer backups
+**/*.relaybackup
+
+# Local certificates, signing keys and exported workspaces
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.mobileprovision
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*

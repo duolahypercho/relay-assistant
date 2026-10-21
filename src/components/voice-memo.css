@@ -1,0 +1,124 @@
+.voice-memo {
+  width: min(100%, 520px);
+  margin: 10px 0 4px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 17px;
+}
+.voice-memo-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px 12px;
+}
+.voice-memo-heading strong {
+  font-size: 0.875rem;
+}
+.voice-memo-heading small {
+  font-size: 0.6875rem;
+  color: var(--muted);
+}
+.voice-memo-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0;
+}
+.voice-memo-play {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: var(--surface);
+}
+.voice-memo-controls input {
+  flex: 1;
+  width: 0;
+  min-width: 25px;
+  accent-color: var(--blue);
+  padding: 0;
+  border: 0;
+}
+.voice-memo-time {
+  flex-shrink: 0;
+  font-size: 0.6875rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+.voice-memo-controls a {
+  flex-shrink: 0;
+}
+.voice-memo details {
+  font-size: 0.8125rem;
+}
+.voice-memo summary {
+  cursor: pointer;
+  color: var(--muted);
+}
+.voice-memo details p {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.6;
+  margin: 10px 0 0;
+}
+.voice-memo-action {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.voice-memo-error p,
+.voice-memo-action-error {
+  font-size: 0.75rem;
+  color: var(--ink);
+}
+.voice-memo-action-error {
+  max-width: 260px;
+}
+.voice-memo.voice-memo-inline {
+  width: min(100%, 420px);
+  margin: 4px 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.voice-memo-inline .voice-memo-controls {
+  margin: 0;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.voice-memo-inline .voice-memo-play {
+  width: 44px;
+  height: 44px;
+  background: var(--soft);
+  color: var(--ink);
+}
+.voice-memo-label {
+  flex-shrink: 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+.voice-memo-inline .voice-memo-controls input {
+  height: 44px;
+  min-width: 64px;
+}
+.voice-memo-inline .voice-memo-controls .icon-button {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+}
+@media (max-width: 480px) {
+  .voice-memo {
+    padding: 11px;
+  }
+  .voice-memo-controls {
+    gap: 6px;
+  }
+}

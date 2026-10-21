@@ -1,0 +1,372 @@
+/* Message rhythm and affordances; Relay's own cream, seafoam and forest palette. */
+.message {
+  margin: 4px 0;
+}
+.message[data-group-end='true'] {
+  margin-bottom: 13px;
+}
+.message-time-divider {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.6875rem;
+  font-weight: 550;
+  margin: 16px 0 22px;
+}
+.message .message-content {
+  position: relative;
+  max-width: min(728px, 100%);
+}
+.message.user .message-content,
+[data-theme='dark'] .message.user .message-content {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  color: var(--ink);
+}
+.message.user .message-content {
+  max-width: min(598px, 100%);
+}
+.message-bubble-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+.message.user .message-bubble-row {
+  flex-direction: row-reverse;
+}
+.message-bubble-row > .message-bubble {
+  min-width: 0;
+  margin-left: 0;
+}
+.message-bubble-row > .message-more {
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  color: var(--muted);
+}
+.message-bubble {
+  --bubble: var(--soft);
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  background: var(--bubble);
+  isolation: isolate;
+  translate: var(--reply-drag, 0px) 0;
+  transition: translate 180ms ease-out;
+}
+.message-bubble[data-swipe] {
+  transition: none;
+}
+.swipe-reply-cue {
+  position: absolute;
+  left: -37px;
+  top: calc(50% - 14px);
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: var(--muted);
+  opacity: 0;
+  pointer-events: none;
+}
+.message-bubble[data-swipe] .swipe-reply-cue {
+  opacity: 0.55;
+}
+.message-bubble[data-swipe='ready'] .swipe-reply-cue {
+  opacity: 1;
+  background: var(--tint);
+  color: var(--ink);
+}
+.messages,
+.has-conversation .messages {
+  overflow-x: hidden;
+}
+@media (prefers-reduced-motion: reduce) {
+  .message-bubble {
+    transition: none;
+  }
+}
+.message.user .message-bubble {
+  --bubble: #dfece4;
+  margin-left: auto;
+}
+[data-theme='dark'] .message.user .message-bubble {
+  --bubble: #365242;
+}
+.message-bubble > .markdown {
+  padding: 0;
+  background: transparent;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+.message-bubble > .markdown > :first-child {
+  margin-top: 0;
+}
+.message-bubble > .markdown > :last-child {
+  margin-bottom: 0;
+}
+.message[data-group-end='true'] .message-bubble::before {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 17px;
+  background: var(--bubble);
+  bottom: 0;
+  z-index: -1;
+}
+.message.assistant[data-group-end='true'] .message-bubble::before {
+  left: -5px;
+  border-radius: 0 0 12px 0;
+}
+.message.user[data-group-end='true'] .message-bubble::before {
+  right: -5px;
+  border-radius: 0 0 0 12px;
+}
+.message-actions {
+  display: none;
+  min-height: 23px;
+  gap: 5px;
+  color: var(--muted);
+}
+.message.user .message-actions {
+  color: var(--muted);
+}
+.message.actions-open .message-actions,
+.message:has(.message-more:focus-visible, .message-actions:focus-within) .message-actions {
+  display: flex;
+}
+.message-actions .icon-button:not(.message-more),
+.message-actions .voice-memo-action {
+  display: none;
+}
+.message.actions-open .message-actions .icon-button,
+.message:has(.message-more:focus-visible, .message-actions:focus-within)
+  .message-actions
+  .icon-button {
+  display: inline-flex;
+}
+.message.actions-open .message-actions .voice-memo-action,
+.message:has(.message-more:focus-visible, .message-actions:focus-within)
+  .message-actions
+  .voice-memo-action {
+  display: block;
+}
+.message-actions time {
+  opacity: 0;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.message.actions-open .message-actions time,
+.message:has(.message-more:focus-visible, .message-actions:focus-within) .message-actions time {
+  opacity: 1;
+}
+.message-more {
+  opacity: 1;
+}
+@media (hover: hover) {
+  .message:hover .message-actions {
+    display: flex;
+  }
+  .message:hover .message-actions .icon-button {
+    display: inline-flex;
+  }
+  .message:hover .message-actions .voice-memo-action {
+    display: block;
+  }
+  .message:hover .message-actions time {
+    opacity: 1;
+  }
+  .message-more {
+    opacity: 0;
+  }
+  .message:hover .message-more,
+  .message:focus-within .message-more,
+  .message.actions-open .message-more,
+  .message-more:focus-visible {
+    opacity: 1;
+  }
+}
+.message-reactions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  width: fit-content;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  border-radius: 24px;
+  padding: 4px;
+  margin-top: 9px;
+}
+.message-reactions button {
+  font-size: 1.125rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.message-reactions button:hover,
+.message-reactions button[aria-pressed='true'] {
+  background: var(--tint);
+}
+.message-reaction {
+  position: absolute;
+  top: -15px;
+  right: -7px;
+  border: 3px solid var(--background);
+  background: var(--tint);
+  border-radius: 20px;
+  min-width: 34px;
+  min-height: 30px;
+  padding: 1px 6px;
+  font-size: 0.9375rem;
+}
+.message[data-has-reaction='true'] {
+  margin-top: 20px;
+}
+.quoted-message {
+  display: flex;
+  flex-direction: column;
+  border-left: 3px solid var(--blue);
+  padding: 4px 9px;
+  margin: 1px 0 8px;
+  max-width: 100%;
+  text-align: left;
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+.quoted-message span {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.reply-preview {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-left: 3px solid var(--blue);
+  padding: 8px 10px;
+  margin: 0 15px 8px;
+  background: var(--soft);
+  border-radius: 3px 10px 10px 3px;
+}
+.reply-preview > div {
+  min-width: 0;
+  flex: 1;
+}
+.reply-preview strong,
+.reply-preview span {
+  display: block;
+  font-size: 0.75rem;
+}
+.reply-preview span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--muted);
+  margin-top: 3px;
+}
+.message.has-cards .message-content {
+  max-width: min(750px, 100%);
+}
+.message.has-workspace-card .message-content {
+  max-width: 100%;
+}
+.message.user {
+  margin-left: 40px;
+}
+.message.user .message-bubble {
+  transform-origin: bottom right;
+}
+@media (max-width: 720px) {
+  .message .message-content {
+    max-width: 100%;
+  }
+  .message.user {
+    margin-left: 0;
+  }
+  .message.has-cards .message-content {
+    max-width: 100%;
+  }
+  .message-bubble {
+    padding: 9px 13px;
+  }
+  .message-actions .icon-button {
+    min-width: 30px;
+    min-height: 30px;
+  }
+  .message-reactions button {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+.message[data-group-end='true'] .message-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 10px;
+  height: 20px;
+  background: var(--surface);
+  pointer-events: none;
+}
+.message.assistant[data-group-end='true'] .message-bubble::after {
+  left: -10px;
+  border-bottom-right-radius: 10px;
+}
+.message.user[data-group-end='true'] .message-bubble::after {
+  right: -10px;
+  border-bottom-left-radius: 10px;
+}
+@media (hover: hover) {
+  .message .message-content {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .message .message-actions {
+    position: absolute;
+    width: max-content;
+    max-width: calc(100vw - 40px);
+    top: 100%;
+    left: 0;
+    z-index: 5;
+    border-radius: 12px;
+  }
+  .message.user .message-actions {
+    left: auto;
+    right: 0;
+  }
+  .message:hover .message-actions,
+  .message:has(.message-more:focus-visible, .message-actions:focus-within) .message-actions,
+  .message.actions-open .message-actions {
+    background: var(--surface);
+    box-shadow: 0 2px 8px #293b3412;
+  }
+  .message[data-group-end='true'] {
+    margin-bottom: 20px;
+  }
+}
+@keyframes message-arrive {
+  from {
+    transform: translateY(6px) scale(0.98);
+  }
+  to {
+    transform: translateY(0) scale(1);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .message.is-new .message-bubble {
+    animation: message-arrive 220ms ease-out;
+  }
+}
+
+/* Quoted context must remain readable inside the darker outgoing bubble. */
+[data-theme='dark'] .message.user .quoted-message {
+  color: var(--text);
+}

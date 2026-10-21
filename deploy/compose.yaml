@@ -1,0 +1,93 @@
+name: relay
+services:
+  setup:
+    image: relay-server:local
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    entrypoint: [node, server/hosting-setup.mjs]
+    healthcheck:
+      disable: true
+    network_mode: none
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    volumes:
+      - relay-secrets:/run/relay-secrets
+    restart: 'no'
+
+  app:
+    image: relay-server:local
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    depends_on:
+      setup:
+        condition: service_completed_successfully
+    environment:
+      RELAY_MODE: live
+      RELAY_PUBLIC_URL: https://${RELAY_DOMAIN:?Set RELAY_DOMAIN to your server domain}
+      RELAY_ACCESS_KEY_FILE: /run/relay-secrets/current/access-key
+      RELAY_TOKEN_ENCRYPTION_KEY_FILE: /run/relay-secrets/current/token-key
+      RELAY_BROWSER_ENABLED: 'true'
+      RELAY_DESKTOP_ENABLED: 'false'
+      RELAY_COMPUTER_ENABLED: 'false'
+      RELAY_TRUSTED_BROWSER_ENABLED: 'false'
+    volumes:
+      - relay-data:/app/data
+      - relay-secrets:/run/relay-secrets:ro
+    tmpfs:
+      - /tmp:rw,nosuid,nodev,size=256m,mode=1777
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    shm_size: 256mb
+    init: true
+    restart: unless-stopped
+    stop_grace_period: 90s
+
+  https:
+    image: relay-https:local
+    build:
+      context: ..
+      dockerfile: deploy/caddy.Dockerfile
+    depends_on:
+      app:
+        condition: service_healthy
+    environment:
+      RELAY_DOMAIN: ${RELAY_DOMAIN:?Set RELAY_DOMAIN to your server domain}
+    ports:
+      - '80:80'
+      - '443:443'
+      - '443:443/udp'
+    volumes:
+      - https-data:/data
+      - https-config:/config
+    read_only: true
+    tmpfs:
+      - /tmp:rw,nosuid,nodev,size=32m,mode=1777
+    cap_drop: [ALL]
+    cap_add: [NET_BIND_SERVICE]
+    security_opt: [no-new-privileges:true]
+    restart: unless-stopped
+
+  maintenance:
+    profiles: [maintenance]
+    image: relay-server:local
+    entrypoint: [node, server/hosting-archive.mjs]
+    healthcheck:
+      disable: true
+    network_mode: none
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    volumes:
+      - relay-data:/restore/data
+      - relay-secrets:/restore/relay-secrets
+    restart: 'no'
+
+volumes:
+  relay-data:
+  relay-secrets:
+  https-data:
+  https-config:

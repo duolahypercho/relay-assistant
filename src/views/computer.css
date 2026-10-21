@@ -1,0 +1,733 @@
+.computer-page {
+  width: 100%;
+  max-width: 1050px;
+  margin: auto;
+}
+.computer-intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 12px;
+}
+.computer-intro h2 {
+  font-size: 27px;
+  letter-spacing: -0.04em;
+  font-weight: 600;
+  margin: 5px 0;
+}
+.computer-intro p {
+  margin: 0;
+  color: var(--muted, #65706b);
+}
+.computer-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.computer-status i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--muted);
+}
+.computer-status.is-running i {
+  background: var(--green);
+}
+.computer-window {
+  border: 1px solid var(--line, #e2e4dd);
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--surface, #fff);
+  box-shadow: 0 8px 28px #23362906;
+}
+.computer-window-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line, #e2e4dd);
+  font-size: 13px;
+}
+.computer-window-bar > span,
+.computer-window-bar > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.computer-window-bar button {
+  min-height: 44px;
+  font-size: 12px;
+}
+.computer-display {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: #f1f2ed;
+  cursor: default;
+  line-height: 0;
+  overflow: hidden;
+  touch-action: pan-x pan-y;
+}
+.computer-display img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 8/5;
+  object-fit: contain;
+}
+.has-control .computer-display {
+  cursor: crosshair;
+}
+.computer-display:focus-visible {
+  outline: 3px solid #607e65;
+  outline-offset: -3px;
+}
+.computer-rest {
+  min-height: 370px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 48px 28px;
+  text-align: center;
+  background: radial-gradient(ellipse at 50% 40%, #f5f7ee, transparent 75%);
+}
+.computer-rest-icon {
+  width: 76px;
+  height: 76px;
+  display: grid;
+  place-items: center;
+  background: #e6ecdf;
+  color: #526b52;
+  border-radius: 26px;
+  transform: rotate(-5deg);
+  margin-bottom: 18px;
+}
+.computer-rest h3 {
+  font-size: 24px;
+  font-weight: 550;
+  letter-spacing: -0.03em;
+  margin: 0 0 8px;
+}
+.computer-rest > p {
+  max-width: 390px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #627165;
+  margin: 0 0 24px;
+}
+.computer-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  font-size: 11px;
+  color: var(--muted);
+  border-top: 1px solid var(--line, #e2e4dd);
+}
+.computer-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  background: var(--soft);
+}
+.computer-input-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.computer-input-actions > button {
+  min-height: 44px;
+  font-size: 12px;
+  padding: 8px 10px;
+  white-space: nowrap;
+}
+.computer-input-actions .computer-touch-drag,
+.computer-touch-keyboard {
+  display: none;
+}
+.computer-input-actions button[aria-pressed='true'] {
+  color: var(--blue);
+  background: var(--tint);
+  border-color: var(--blue);
+}
+.computer-input form {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex: 1;
+  min-width: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 0 5px 0 14px;
+}
+.computer-input input {
+  border: 0;
+  background: transparent;
+  min-width: 0;
+  flex: 1;
+  padding: 8px 0;
+  font-size: 16px;
+  color: var(--ink);
+}
+.computer-input .icon-button {
+  min-width: 44px;
+  min-height: 44px;
+}
+.computer-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 14px 2px;
+  color: #617267;
+  font-size: 12px;
+}
+.computer-secondary > span {
+  font-size: 11px;
+}
+.computer-error {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border: 1px solid #dbc9b7;
+  background: #faf4ec;
+  padding: 12px 16px;
+  border-radius: 14px;
+  font-size: 13px;
+  margin-bottom: 16px;
+  overflow-wrap: anywhere;
+}
+.computer-setup {
+  max-width: 460px;
+  text-align: left;
+  font-size: 13px;
+}
+.computer-setup summary {
+  cursor: pointer;
+  text-align: center;
+}
+.computer-setup code {
+  display: block;
+  overflow-wrap: anywhere;
+  white-space: normal;
+  font-size: 11px;
+  margin: 12px 0;
+}
+.computer-tools {
+  border-top: 1px solid #e3e7dc;
+  margin-top: 24px;
+  padding: 16px 0;
+  font-size: 13px;
+}
+.computer-tools > summary {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
+}
+.computer-tools form {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.computer-tools textarea {
+  flex: 1;
+  min-width: 0;
+  font:
+    13px/1.5 ui-monospace,
+    monospace;
+}
+.computer-receipts details {
+  padding: 12px 0;
+  border-bottom: 1px solid #e3e7dc;
+}
+.computer-receipts summary {
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+.computer-receipts summary span {
+  color: #657064;
+  margin-left: 12px;
+  font-size: 11px;
+}
+.computer-receipts pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: 240px;
+  overflow: auto;
+  font-size: 12px;
+}
+.computer-files {
+  border: 1px solid #dfe4d8;
+  border-radius: 16px;
+  padding: 16px;
+  margin-top: 16px;
+}
+.computer-files header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.computer-files h3 {
+  font-size: 15px;
+  margin: 0;
+}
+.computer-file-path {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+  color: #617267;
+  margin: 10px 0;
+}
+.computer-file-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #edf0e9;
+  gap: 12px;
+  font-size: 13px;
+}
+.computer-file-row > span {
+  overflow-wrap: anywhere;
+  min-width: 0;
+  flex: 1;
+}
+.computer-file-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.computer-create {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  font-size: 13px;
+}
+.computer-create > span {
+  color: var(--muted);
+}
+.computer-create button,
+.computer-file-actions button {
+  min-height: 44px;
+}
+.computer-file-row button {
+  white-space: nowrap;
+}
+.computer-import {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+.computer-import select {
+  flex: 1;
+  min-width: 0;
+  font-size: 12px;
+}
+@media (max-width: 600px) {
+  .computer-intro {
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .computer-intro h2 {
+    font-size: 25px;
+  }
+  .computer-intro > div > p:last-child {
+    font-size: 12px;
+  }
+  .computer-status {
+    font-size: 11px;
+  }
+  .computer-window {
+    border-radius: 16px;
+  }
+  .computer-window-bar {
+    padding: 10px;
+    font-size: 11px;
+  }
+  .computer-window-bar button {
+    padding: 8px;
+    font-size: 11px;
+  }
+  .computer-rest {
+    min-height: 350px;
+    padding: 32px 20px;
+  }
+  .computer-rest h3 {
+    font-size: 22px;
+  }
+  .computer-footer {
+    padding: 10px 12px;
+    line-height: 1.5;
+  }
+  .computer-input {
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+  .computer-input form {
+    flex-basis: 100%;
+  }
+  .computer-tools form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .computer-secondary > span {
+    display: none;
+  }
+  .computer-files {
+    padding: 12px;
+  }
+  .computer-import {
+    flex-wrap: wrap;
+  }
+  .computer-setup code {
+    font-size: 10px;
+  }
+}
+
+.workspace-computer-page .workspace-page-content > h1 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.computer-rest {
+  min-height: 280px;
+  padding: 28px;
+}
+.computer-display {
+  max-width: calc(max(200px, 100dvh - 490px) * 1.6);
+  margin: auto;
+}
+.has-control .computer-display {
+  max-width: calc(max(200px, 100dvh - 550px) * 1.6);
+}
+@media (max-width: 600px) {
+  .computer-rest {
+    min-height: 270px;
+    padding: 24px 18px;
+  }
+  .computer-display,
+  .has-control .computer-display {
+    max-width: 100%;
+  }
+  .computer-intro h2 {
+    font-size: 24px;
+  }
+}
+.computer-viewport {
+  overflow: hidden;
+}
+.computer-viewport.is-zoomed {
+  height: min(60dvh, 560px);
+  overflow: auto;
+}
+.computer-viewport.is-zoomed .computer-display {
+  width: 1280px;
+  max-width: none;
+}
+
+.computer-screen-input {
+  position: relative;
+}
+.computer-display.accepts-touch-drag {
+  touch-action: none;
+}
+@media (any-pointer: coarse) {
+  .computer-input-actions .computer-touch-drag,
+  .computer-touch-keyboard {
+    display: inline-flex;
+  }
+}
+@media (max-width: 720px) {
+  .workspace-computer-page .workspace-page-content {
+    padding-top: 4px;
+  }
+  .computer-page .computer-modes {
+    margin-bottom: 12px;
+  }
+  .computer-input {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .computer-input form {
+    flex: auto;
+  }
+  .computer-input-actions {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .computer-input-actions > button {
+    padding-inline: 8px;
+  }
+  .computer-window-bar .icon-button {
+    min-width: 44px;
+  }
+}
+@media (max-width: 360px) {
+  .computer-input-actions > button {
+    gap: 4px;
+    padding-inline: 6px;
+  }
+}
+.computer-direct-keyboard {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  bottom: 0;
+  left: 0;
+  resize: none;
+  pointer-events: none;
+}
+.computer-screen-input.has-keyboard .computer-display {
+  outline: 3px solid #607e65;
+  outline-offset: -3px;
+}
+.computer-drag-preview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.computer-drag-preview line {
+  stroke: #fff;
+  stroke-width: 3;
+  stroke-dasharray: 8 6;
+  filter: drop-shadow(0 0 2px #233b31);
+}
+.computer-drag-preview circle {
+  fill: #607e65;
+  stroke: #fff;
+  stroke-width: 2;
+}
+
+.is-zoomed .computer-screen-input {
+  width: 1280px;
+}
+
+.computer-clipboard {
+  padding: 12px 16px;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  background: var(--surface);
+}
+.computer-clipboard p {
+  margin: 0 0 8px;
+  font-size: 13px;
+}
+.computer-clipboard textarea {
+  width: 100%;
+  min-height: 100px;
+  max-height: 240px;
+  resize: vertical;
+  padding: 10px;
+  color: inherit;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.computer-clipboard > div {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.computer-setup-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: min(100%, 440px);
+}
+.computer-rest .computer-setup-flow p {
+  margin: 0;
+}
+.computer-rest .computer-setup-flow .computer-setup-note {
+  font-size: 13px;
+  line-height: 1.5;
+}
+@media (max-width: 600px) {
+  .is-managed-rest .computer-rest {
+    min-height: 0;
+    padding: 20px 18px;
+  }
+  .is-managed-rest .computer-rest-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 18px;
+    margin-bottom: 12px;
+  }
+  .is-managed-rest .computer-rest-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+.computer-setup-flow [role='alert'] {
+  color: var(--text);
+}
+.computer-setup-flow .primary-button {
+  min-height: 44px;
+}
+@media (max-width: 600px) and (max-height: 600px) {
+  .is-managed-rest .computer-rest-icon {
+    display: none;
+  }
+}
+.computer-setup-flow a {
+  color: var(--text);
+  text-underline-offset: 3px;
+}
+
+.computer-care {
+  margin: 16px 0;
+  border-top: 1px solid var(--line);
+}
+.computer-care summary {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  cursor: pointer;
+  padding: 16px 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+.computer-care section {
+  padding: 0 0 16px;
+  max-width: 620px;
+  scroll-margin-block: 130px 105px;
+}
+.computer-care h3 {
+  font-size: 17px;
+  margin: 4px 0 10px;
+}
+.computer-care p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 8px 0;
+}
+.computer-care-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+}
+.computer-care [role='alert'] {
+  color: var(--text);
+}
+
+.computer-snapshot-list {
+  list-style: none;
+  margin: 18px 0;
+  padding: 0;
+}
+.computer-snapshot-list li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+.computer-snapshot-list li > div:first-child {
+  display: grid;
+  gap: 4px;
+}
+.computer-snapshot-list span {
+  color: var(--muted);
+  font-size: 13px;
+}
+.computer-snapshots small {
+  display: block;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.computer-backup-form {
+  max-width: 36rem;
+}
+.computer-backup-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  font-weight: 550;
+}
+.computer-backup-form input {
+  width: 100%;
+  min-width: 0;
+  padding: 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 0.7rem;
+  background: var(--surface);
+  color: var(--ink);
+}
+.computer-backup-form input[type='file'] {
+  font-weight: normal;
+}
+.computer-backup-actions {
+  margin-top: 0.75rem;
+}
+.computer-backup-form .computer-care-actions {
+  margin-top: 1rem;
+}
+
+.computer-keyboard-note {
+  flex: 1;
+  min-width: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+.computer-input form > .text-button {
+  min-height: 44px;
+  padding: 8px 12px;
+}
+.computer-touch-keyboard[aria-pressed='true'] {
+  color: var(--blue);
+  background: var(--tint);
+}
+
+/* A phone's keyboard should leave room to see the guest being edited. The
+   existing Back and Done controls remain available throughout this mode. */
+@media (any-pointer: coarse) {
+  .workspace:has(.computer-page.is-keyboard-open) > .topbar,
+  .workspace-computer-page:has(.computer-page.is-keyboard-open) > .chat-dock {
+    display: none;
+  }
+}
+
+.computer-rest.is-missing {
+  min-height: 0;
+  padding: 22px;
+}
+.computer-rest.is-missing .computer-rest-icon {
+  display: none;
+}
+.computer-rest.is-missing > p {
+  max-width: 540px;
+  margin-bottom: 0;
+}
