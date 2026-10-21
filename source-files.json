@@ -247,6 +247,7 @@
     "scripts/chat-resume-fixture.mjs",
     "scripts/chat-retry-fixture.mjs",
     "scripts/chat-stop-fixture.mjs",
+    "scripts/check-browser-capture.mjs",
     "scripts/computer-backup.mjs",
     "scripts/computer-engine-fixture.mjs",
     "scripts/computer-input-fixture.mjs",

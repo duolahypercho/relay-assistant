@@ -27,6 +27,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium
+      - run: node scripts/check-browser-capture.mjs
       - run: npm run format:check
       - run: npm test
       - run: npm run build

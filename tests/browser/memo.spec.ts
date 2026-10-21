@@ -42,7 +42,8 @@ test('saved voice memo plays inline, seeks, downloads and survives reload withou
   const memo = message.getByRole('group', { name: 'Voice memo', exact: true });
   await expect(memo).toBeVisible();
   await expect(page.getByRole('dialog')).toHaveCount(0);
-  await expect(memo.getByText('AI-generated voice')).toBeVisible();
+  await expect(memo).toHaveClass(/voice-memo-inline/);
+  await expect(memo.getByText('AI voice', { exact: true })).toBeVisible();
   await expect(memo.getByRole('slider')).toBeEnabled();
   await memo.getByRole('button', { name: 'Play voice memo', exact: true }).click();
   await expect
@@ -53,8 +54,8 @@ test('saved voice memo plays inline, seeks, downloads and survives reload withou
   await expect
     .poll(() => memo.locator('audio').evaluate((a: HTMLAudioElement) => a.currentTime))
     .toBeCloseTo(0.5, 1);
-  await memo.getByText('Transcript', { exact: true }).click();
-  await expect(memo.locator('details p')).toContainText('I’ll keep that in mind.');
+  await expect(memo.locator('details')).toHaveCount(0);
+  await expect(message.locator('.message-bubble')).toContainText('I’ll keep that in mind.');
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
   await mkdir(evidence, { recursive: true });
   await page.screenshot({ path: resolve(evidence, `${info.project.name}-memo.png`) });
@@ -96,6 +97,12 @@ test('only one memo plays; backgrounding pauses it and audio failure keeps the t
     await message.getByRole('button', { name: 'Create voice memo', exact: true }).click();
     await expect(message.getByRole('group', { name: 'Voice memo' })).toBeVisible();
   }
+  const savedReply = await page
+    .locator('.message.assistant')
+    .last()
+    .locator('.message-bubble')
+    .innerText();
+  expect(savedReply.trim()).not.toBe('');
   const memos = page.getByRole('group', { name: 'Voice memo' });
   const one = memos.nth((await memos.count()) - 2),
     two = memos.last();
@@ -126,8 +133,10 @@ test('only one memo plays; backgrounding pauses it and audio failure keeps the t
   const last = page.getByRole('group', { name: 'Voice memo' }).last();
   await last.getByRole('button', { name: 'Play voice memo', exact: true }).click();
   await expect(last.getByRole('alert')).toContainText(/unavailable|could not play/);
-  await last.getByText('Transcript', { exact: true }).click();
-  await expect(last.locator('details p')).not.toBeEmpty();
+  await expect(last.locator('details')).toHaveCount(0);
+  await expect(page.locator('.message.assistant').last().locator('.message-bubble')).toHaveText(
+    savedReply,
+  );
   await page.unroute('**/api/voice-memos/*/audio');
   await last.getByRole('button', { name: 'Reload audio', exact: true }).click();
   await expect(last.getByRole('alert')).toBeHidden();
