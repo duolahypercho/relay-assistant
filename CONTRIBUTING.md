@@ -2,7 +2,7 @@
 
 Use Node 24 or newer. Run `npm ci`, `npm run dev`, and configure a model only if you need live AI behavior. Sample mode is enough for UI development.
 
-The full test suite also requires FFmpeg and ffprobe with the `fd` protocol (FFmpeg 7 or newer; Debian 13 and the current Mac build are verified). Install them before running `npm test`, or set `RELAY_FFMPEG_PATH` and `RELAY_FFPROBE_PATH`. See [video setup](docs/MEDIA_FILES.md). CI installs these dependencies explicitly.
+The full test suite also requires Python 3, plus FFmpeg and ffprobe with the `fd` protocol (FFmpeg 7 or newer; Debian 13 and the current Mac build are verified). Install them before running `npm test`, or set `RELAY_FFMPEG_PATH` and `RELAY_FFPROBE_PATH`. See [video setup](docs/MEDIA_FILES.md). CI installs these dependencies explicitly.
 
 Before submitting a change, run:
 
