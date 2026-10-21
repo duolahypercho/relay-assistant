@@ -1,7 +1,13 @@
 // SPDX-License-Identifier: MIT
 // Synthetic microphone capability check: no physical microphone or user workspace.
 import assert from 'node:assert/strict';
+import { existsSync } from 'node:fs';
 const results = [];
+const selectedChannel =
+  process.env.RELAY_TEST_BROWSER_CHANNEL ||
+  (process.platform === 'darwin' && existsSync('/Applications/Google Chrome.app')
+    ? 'chrome'
+    : 'chromium');
 import { chromium } from '@playwright/test';
 import { createServer } from 'node:http';
 import { once } from 'node:events';
@@ -10,7 +16,7 @@ const server = createServer((req, res) =>
 ).listen(0, '127.0.0.1');
 await once(server, 'listening');
 try {
-  for (const channel of [undefined, 'chromium']) {
+  for (const channel of [selectedChannel]) {
     const browser = await chromium.launch({
       headless: true,
       channel,

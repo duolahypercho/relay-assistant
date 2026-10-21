@@ -13,7 +13,7 @@ npm run build
 npm run test:e2e
 ```
 
-Install Playwright Chromium with `npx playwright install chromium` if no compatible browser is present. Tests use isolated sample data. Browser snapshots and traces are local verification artifacts, not product assets.
+Install Playwright Chromium with `npx playwright install chromium` if no compatible browser is present. Tests use isolated sample data. Voice tests require the full Chromium browser in headless mode; the minimal Linux headless shell does not support the verified synthetic-capture path. The Playwright configuration selects full Chromium automatically, and `node scripts/check-browser-capture.mjs` checks the chosen browser with synthetic audio. Browser snapshots and traces are local verification artifacts, not product assets.
 
 Write original code. References can inform requirements and interaction patterns, but do not import competitor code, branding, mascots, screenshots, or proprietary assets. Do not include account tokens, exported personal workspaces, `.env`, or browser profiles in a contribution.
 

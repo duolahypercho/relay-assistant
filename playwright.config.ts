@@ -20,11 +20,12 @@ export default defineConfig({
     baseURL: previewUrl,
     locale: 'en-US',
     timezoneId: 'America/New_York',
+    // Full Chromium supports the synthetic microphone; the minimal Linux headless shell does not.
     channel:
       process.env.RELAY_TEST_BROWSER_CHANNEL ||
       (process.platform === 'darwin' && existsSync('/Applications/Google Chrome.app')
         ? 'chrome'
-        : undefined),
+        : 'chromium'),
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
   },
