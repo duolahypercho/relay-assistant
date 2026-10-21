@@ -4,7 +4,7 @@ Relay's source archive is a development release of an independent MIT-licensed a
 
 ## Source archive
 
-Use Node.js 24 or later from the repository root:
+Use Node.js 24 or later from the repository root. The clean rebuild verifier also needs system FFmpeg and ffprobe with the `fd` protocol, as described in [contributing](../CONTRIBUTING.md); `npm ci` installs JavaScript dependencies, not these system programs.
 
 ```sh
 npm ci
